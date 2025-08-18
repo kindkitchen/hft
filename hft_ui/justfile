@@ -2,6 +2,8 @@ ROOT := `cd .. && pwd`
 
 import '../JUSTFILE'
 
+alias i := install
+
 _______________:
     just --list
 
@@ -22,3 +24,8 @@ commit:
     git add -A
     git commit -m "hft_ui: "
     git commit --amend
+
+[script('bash')]
+install:
+    pwd
+    deno install --allow-scripts

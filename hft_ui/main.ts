@@ -1,6 +1,8 @@
+import { load } from "@std/dotenv";
 import { App, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
 
+await load({ export: true });
 export const app = new App<State>();
 
 app.use(staticFiles());
