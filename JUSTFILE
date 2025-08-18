@@ -13,6 +13,7 @@ import '.just/format_all_justfiles.just'
 import '.just/home.just'
 
 alias v := version
+alias ui := hft_ui
 
 ROOT := justfile_directory()
 
@@ -24,19 +25,10 @@ check *args:
     COMMAND="deno check {{ args }}"
 
 [script('bash')]
-main_api *args="":
-    just app main_api {{ args }}
-
-alias api := main_api
-
-[script('bash')]
-main_ui *args="":
-    just app main_ui {{ args }}
-
-alias ui := main_ui
+hft_ui *args="":
+    just app hft_ui {{ args }}
 
 [script('bash')]
 fmt:
     just format_all_justfiles
     just ui just fmt
-    just api just fmt

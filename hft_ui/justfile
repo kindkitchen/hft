@@ -1,0 +1,24 @@
+ROOT := `cd .. && pwd`
+
+import '../JUSTFILE'
+
+_______________:
+    just --list
+
+fmt:
+    just --fmt
+    deno fmt
+
+[script('bash')]
+root *args="":
+    just app . {{ args }}
+
+[script('bash')]
+dev PORT="9000":
+    PORT={{ PORT }} deno task dev
+
+[script('bash')]
+commit:
+    git add -A
+    git commit -m "hft_ui: "
+    git commit --amend
