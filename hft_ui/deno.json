@@ -25,8 +25,10 @@
     "**/_fresh/*"
   ],
   "imports": {
+    "@kitsonk/kv-toolbox": "jsr:@kitsonk/kv-toolbox@^0.30.0",
     "@std/datetime": "jsr:@std/datetime@^0.225.5",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "@std/http": "jsr:@std/http@^1.0.20",
     "effect": "npm:effect@^3.17.7",
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.58",
     "google-auth-library": "npm:google-auth-library@^9.15.1",
@@ -42,7 +44,8 @@
       "dom",
       "dom.asynciterable",
       "dom.iterable",
-      "deno.ns"
+      "deno.ns",
+      "deno.unstable"
     ],
     "jsx": "precompile",
     "jsxImportSource": "preact",

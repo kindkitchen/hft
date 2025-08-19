@@ -1,9 +1,12 @@
 import { Config, Effect } from "effect";
 import { OAuth2Client } from "google-auth-library";
+import { MarkRequired } from "../util/utility_types.ts";
 import {
   Err_client_getToken,
   Err_client_getTokenInfo,
+  Err_missing_email,
   Err_no_access_token_in_get_token_response,
+  Err_unverified_email,
 } from "./err.ts";
 
 export class Service_google_oauth20
@@ -75,9 +78,24 @@ export class Service_google_oauth20
                 }),
             });
 
+            console.log(info);
+
+            if (!info.email) {
+              yield* Effect.fail(
+                new Err_missing_email({ scope: "google_oauth2.0" }),
+              );
+            } else if (!info.email_verified) {
+              yield* Effect.fail(
+                new Err_unverified_email({ scope: "google_oauth2.0" }),
+              );
+            }
+
             return {
               payload,
-              info,
+              info: info as MarkRequired<
+                typeof info,
+                "email" | "email_verified"
+              >,
             };
           }),
       };

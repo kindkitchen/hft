@@ -9,7 +9,7 @@ const logic = Effect.gen(function* () {
     async GET(ctx) {
       const sign_in_url = await generate_sign_in_url({
         state: "TODO: " + Date.now(),
-        scope: ["openid"],
+        scope: ["email"],
       });
 
       return ctx.redirect(sign_in_url);

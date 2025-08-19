@@ -17,3 +17,12 @@ export class Err_client_getTokenInfo
     scope: Scope;
   }> {
 }
+
+export class Err_missing_email extends Data.TaggedError("@Err_missing_email")<{
+  scope: Scope;
+}> {}
+
+export class Err_unverified_email
+  extends Data.TaggedError("@Err_unverified_email")<{
+    scope: Scope;
+  }> {}

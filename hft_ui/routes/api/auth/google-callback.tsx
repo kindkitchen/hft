@@ -1,4 +1,6 @@
+import { setCookie } from "@std/http";
 import { Effect, Layer } from "effect";
+import { db } from "../../../db.ts";
 import { Service_google_oauth20 } from "../../../google_oauth2.0/Service.ts";
 import { define } from "../../../utils.ts";
 
@@ -7,13 +9,22 @@ const logic = Effect.gen(function* () {
 
   return define.handlers({
     async GET(ctx) {
+      const url = new URL(ctx.req.url);
+      const headers = new Headers();
       const result = await parse_code_in_cb(
-        Object.fromEntries(new URL(ctx.req.url).searchParams)["code"] || "",
+        Object.fromEntries(url.searchParams)["code"],
       )
         .pipe(
-          Effect.map(({ info, payload }) => {
-            console.log(info);
-            console.log(payload);
+          Effect.map(async ({ info, payload: _p }) => {
+            const session = await db.create_session(info.email);
+            setCookie(headers, {
+              name: "session",
+              value: new URLSearchParams(session).toString(),
+              sameSite: "Lax",
+              domain: url.hostname,
+              path: "/",
+              secure: true,
+            });
 
             return "success";
           }),
@@ -27,7 +38,12 @@ const logic = Effect.gen(function* () {
           Effect.runPromise,
         );
 
-      return ctx.redirect("/?" + result);
+      headers.set("location", "/?" + result);
+
+      return new Response(null, {
+        status: 303,
+        headers,
+      });
     },
   });
 });
