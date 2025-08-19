@@ -10,17 +10,6 @@ export default define.page(function App({ Component, state }) {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body>
-        {state.session
-          ? (
-            <div>
-              <a href="/api/auth/logout">Logout</a>
-            </div>
-          )
-          : (
-            <div>
-              <a href="/api/auth/sign-in/google">Login</a>
-            </div>
-          )}
         <Component />
       </body>
     </html>
