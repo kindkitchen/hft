@@ -42,36 +42,44 @@ export class Service_google_oauth20
 
           return uri;
         },
-        parse_code_in_cb: async (code: string) => {
-          const payload = await google_oauth2_client
-            .getToken(code)
-            .catch((err) => {
-              throw new Err_client_getToken({
-                err,
-                scope: "google_oauth2.0",
-              });
+        parse_code_in_cb: (code: string) =>
+          Effect.gen(function* () {
+            const payload = yield* Effect.tryPromise({
+              try: () =>
+                google_oauth2_client
+                  .getToken(code),
+              catch: (err) =>
+                new Err_client_getToken({
+                  err,
+                  scope: "google_oauth2.0",
+                }),
             });
 
-          if (!payload.tokens.access_token) {
-            throw new Err_no_access_token_in_get_token_response({
-              scope: "google_oauth2.0",
-            });
-          }
+            if (!payload.tokens.access_token) {
+              yield* Effect.fail(
+                new Err_no_access_token_in_get_token_response({
+                  scope: "google_oauth2.0",
+                }),
+              );
+            }
 
-          const info = await google_oauth2_client.getTokenInfo(
-            payload.tokens.access_token,
-          ).catch((err) => {
-            throw new Err_client_getTokenInfo({
-              err,
-              scope: "google_oauth2.0",
+            const info = yield* Effect.tryPromise({
+              try: () =>
+                google_oauth2_client.getTokenInfo(
+                  payload.tokens.access_token!,
+                ),
+              catch: (err) =>
+                new Err_client_getTokenInfo({
+                  err,
+                  scope: "google_oauth2.0",
+                }),
             });
-          });
 
-          return {
-            payload,
-            info,
-          };
-        },
+            return {
+              payload,
+              info,
+            };
+          }),
       };
     }),
   }) {}
