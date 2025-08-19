@@ -37,7 +37,8 @@
     "tailwindcss": "npm:tailwindcss@^4.1.10",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9",
     "@tailwindcss/postcss": "npm:@tailwindcss/postcss@^4.1.10",
-    "postcss": "npm:postcss@^8.5.6"
+    "postcss": "npm:postcss@^8.5.6",
+    "xstate": "npm:xstate@^5.20.2"
   },
   "compilerOptions": {
     "lib": [

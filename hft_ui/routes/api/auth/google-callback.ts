@@ -9,10 +9,9 @@ const logic = Effect.gen(function* () {
 
   return define.handlers({
     async GET(ctx) {
-      const url = new URL(ctx.req.url);
       const headers = new Headers();
       const result = await parse_code_in_cb(
-        Object.fromEntries(url.searchParams)["code"],
+        Object.fromEntries(ctx.url.searchParams)["code"],
       )
         .pipe(
           Effect.map(async ({ info, payload: _p }) => {
@@ -21,7 +20,7 @@ const logic = Effect.gen(function* () {
               name: "session",
               value: new URLSearchParams(session).toString(),
               sameSite: "Lax",
-              domain: url.hostname,
+              domain: ctx.url.hostname,
               path: "/",
               secure: true,
             });

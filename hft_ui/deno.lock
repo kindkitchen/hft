@@ -52,7 +52,8 @@
     "npm:postcss@^8.5.6": "8.5.6",
     "npm:preact-render-to-string@^6.5.11": "6.5.13_preact@10.27.0",
     "npm:preact@^10.27.0": "10.27.0",
-    "npm:tailwindcss@^4.1.10": "4.1.11"
+    "npm:tailwindcss@^4.1.10": "4.1.11",
+    "npm:xstate@^5.20.2": "5.20.2"
   },
   "jsr": {
     "@deno/esbuild-plugin@1.2.0": {
@@ -883,6 +884,9 @@
         "webidl-conversions"
       ]
     },
+    "xstate@5.20.2": {
+      "integrity": "sha512-GZmLmc+WPKfFRxuTDAxCg0cUhS/ZnWaRD86DO8MKizeK4a050jd5k7UNnIQ2jJDWRig2/r0tmVXeezUNIhoz5Q=="
+    },
     "yallist@5.0.0": {
       "integrity": "sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw=="
     }
@@ -978,7 +982,8 @@
       "npm:google-auth-library@^9.15.1",
       "npm:postcss@^8.5.6",
       "npm:preact@^10.27.0",
-      "npm:tailwindcss@^4.1.10"
+      "npm:tailwindcss@^4.1.10",
+      "npm:xstate@^5.20.2"
     ]
   }
 }
