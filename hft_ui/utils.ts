@@ -1,7 +1,9 @@
 import { createDefine } from "fresh";
 
 export interface State {
-  title: string;
+  session: null | {
+    email: string;
+  };
 }
 
 export const define = createDefine<State>();
