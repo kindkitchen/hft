@@ -16,7 +16,7 @@ const { privateKey, publicKey } = await subtle.generateKey(
 const public_key_to_export = await subtle.exportKey("jwk", publicKey);
 const imported_public_key = await subtle.importKey(
   "jwk",
-  public_key_to_export,
+  JSON.parse(JSON.stringify(public_key_to_export)),
   {
     name: NAME_OF_THE_ALGORITHM,
     hash: NAME_OF_THE_HASH,
@@ -25,7 +25,7 @@ const imported_public_key = await subtle.importKey(
   ["encrypt"],
 );
 
-if (String(publicKey) == String(imported_public_key)) {
+if (String(publicKey) !== String(imported_public_key)) {
   throw "Public key and it's imported version should be different";
 }
 
@@ -36,7 +36,7 @@ const cipher = await subtle.encrypt(
   text_encoder.encode(message),
 );
 
-if (message !== text_decoder.decode(cipher)) {
+if (message === text_decoder.decode(cipher)) {
   throw "Encrypted message should be unreadable";
 }
 
