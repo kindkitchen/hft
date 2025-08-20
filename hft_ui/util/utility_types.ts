@@ -20,7 +20,7 @@ export type MarkRequired<T extends Record<string, any>, K extends keyof T> =
   & Omit<T, K>
   & Required<
     {
-      [Key in K]: T[Key];
+      [Key in K]: T[Key] extends null ? Exclude<T[Key], null> : T[Key];
     }
   >;
 
