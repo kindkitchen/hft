@@ -10,3 +10,22 @@ export const define = createDefine<State>();
 export const define_with_session = createDefine<
   MarkRequired<State, "session">
 >();
+
+export const gen_auth_guard = (details = "The session is missing") =>
+  define.middleware((ctx) => {
+    if (!ctx.state.session) {
+      return new Response(
+        JSON.stringify(
+          {
+            error: "Unauthorized",
+            details,
+          },
+          null,
+          0,
+        ),
+        { status: 403 },
+      );
+    }
+
+    return ctx.next();
+  });
