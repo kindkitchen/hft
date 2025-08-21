@@ -6,14 +6,7 @@ export default define.layout(({ Component, state }) => {
       {state.session
         ? (
           <div class="flex flex-row-reverse pr-4">
-            <details>
-              <summary>Profile</summary>
-              <ul>
-                <li>
-                  <a href="/api/auth/logout">Logout</a>
-                </li>
-              </ul>
-            </details>
+            <a href="/api/auth/logout">Logout</a>
           </div>
         )
         : (

@@ -1,26 +1,17 @@
 import { load } from "@std/dotenv";
+import { Elysia } from "elysia";
 import { App, staticFiles } from "fresh";
-import { define, type State } from "./utils.ts";
+import { type State } from "./utils.ts";
 
 await load({ export: true });
-export const app = new App<State>();
 
-app.use(staticFiles());
+const api = new Elysia();
+export const app = new App<State>()
+  .all("/api/*", async (ctx) => {
+    console.log("/api");
+    const res = await api.fetch(ctx.req);
 
-// this is the same as the /api/:name route defined via a file. feel free to delete this!
-app.get("/api2/:name", (ctx) => {
-  const name = ctx.params.name;
-  return new Response(
-    `Hello, ${name.charAt(0).toUpperCase() + name.slice(1)}!`,
-  );
-});
-
-// this can also be defined via a file. feel free to delete this!
-const exampleLoggerMiddleware = define.middleware((ctx) => {
-  console.log(`${ctx.req.method} ${ctx.req.url}`);
-  return ctx.next();
-});
-app.use(exampleLoggerMiddleware);
-
-// Include file-system based routes here
-app.fsRoutes();
+    return res;
+  })
+  .use(staticFiles())
+  .fsRoutes();

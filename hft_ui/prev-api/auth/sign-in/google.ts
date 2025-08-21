@@ -1,6 +1,6 @@
 import { Effect, Layer } from "effect";
-import { Service_google_oauth20 } from "../../../../google_oauth2.0/Service.ts";
-import { define } from "../../../../utils.ts";
+import { Service_google_oauth20 } from "../../../google_oauth2.0/Service.ts";
+import { define } from "../../../utils.ts";
 
 const logic = Effect.gen(function* () {
   const { generate_sign_in_url } = yield* Service_google_oauth20;

@@ -1,8 +1,8 @@
 import { setCookie } from "@std/http";
 import { Effect, Layer } from "effect";
-import { db } from "../../../db.ts";
-import { Service_google_oauth20 } from "../../../google_oauth2.0/Service.ts";
-import { define } from "../../../utils.ts";
+import { db } from "../../db.ts";
+import { Service_google_oauth20 } from "../../google_oauth2.0/Service.ts";
+import { define } from "../../utils.ts";
 
 const logic = Effect.gen(function* () {
   const { parse_code_in_cb } = yield* Service_google_oauth20;

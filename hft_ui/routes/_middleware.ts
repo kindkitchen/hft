@@ -2,7 +2,8 @@ import { deleteCookie, getCookies } from "@std/http";
 import { Session } from "../domain/Session.ts";
 import { define } from "../utils.ts";
 
-export const handler = define.middleware(async (ctx) => {
+export const handler = define.middleware(async function AttachSession(ctx) {
+  console.log("routes/_middleware");
   ctx.state.session = null;
   const sessionCookies = getCookies(ctx.req.headers).session || null;
 
