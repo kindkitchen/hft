@@ -15,6 +15,9 @@
   ],
   "lint": {
     "rules": {
+      "exclude": [
+        "require-yield"
+      ],
       "tags": [
         "fresh",
         "recommended"
