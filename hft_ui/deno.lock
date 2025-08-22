@@ -9,7 +9,6 @@
     "jsr:@fresh/core@^2.0.0-alpha.58": "2.0.0-alpha.59",
     "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9": "0.0.1-alpha.9",
     "jsr:@kitsonk/kv-toolbox@0.30": "0.30.0",
-    "jsr:@nik-kita/toy-db@^1.2.1": "1.2.1",
     "jsr:@std/assert@1": "1.0.13",
     "jsr:@std/bytes@1": "1.0.6",
     "jsr:@std/bytes@^1.0.3": "1.0.6",
@@ -126,9 +125,6 @@
         "jsr:@std/encoding@1",
         "jsr:@std/media-types@1"
       ]
-    },
-    "@nik-kita/toy-db@1.2.1": {
-      "integrity": "4bda6641c575f037db6bf12232e4953e7bccb9212fba67146ec68f585b5384b2"
     },
     "@std/assert@1.0.13": {
       "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29"
@@ -1155,7 +1151,6 @@
       "jsr:@fresh/core@^2.0.0-alpha.58",
       "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9",
       "jsr:@kitsonk/kv-toolbox@0.30",
-      "jsr:@nik-kita/toy-db@^1.2.1",
       "jsr:@std/datetime@~0.225.5",
       "jsr:@std/dotenv@~0.225.5",
       "jsr:@std/http@^1.0.20",

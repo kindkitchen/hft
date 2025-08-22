@@ -29,12 +29,17 @@ export const define_auth = Effect.gen(function* () {
         const headers = new Headers(request.headers);
         const _result = await parse_code_in_cb(query)
           .pipe(
-            Effect.map(({ info, payload: _p }) => {
+            Effect.map(async ({ info, payload: _p }) => {
+              /// create session
+              const session = Session({
+                email: info.email,
+                _id: crypto.randomUUID(),
+              });
+
+              /// update session for client
               setCookie(headers, {
                 name: "session",
-                value: new URLSearchParams(
-                  Session({ email: info.email, _id: crypto.randomUUID() }),
-                ).toString(),
+                value: session._id,
                 sameSite: "Lax",
                 domain: url.hostname,
                 path: "/",
