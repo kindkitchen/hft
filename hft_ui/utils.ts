@@ -1,7 +1,8 @@
 import { createDefine } from "fresh";
 import { Session } from "./domain/Session.ts";
 import { MarkRequired } from "./util/utility_types.ts";
-
+import deno_json from "./deno.json" with { type: "json" };
+export const version = deno_json.version;
 export interface State {
   session: null | Session;
 }

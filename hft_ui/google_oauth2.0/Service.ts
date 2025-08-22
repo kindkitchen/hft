@@ -5,6 +5,7 @@ import {
   Err_client_getToken,
   Err_client_getTokenInfo,
   Err_missing_email,
+  Err_missing_query_string,
   Err_no_access_token_in_get_token_response,
   Err_unverified_email,
 } from "./err.ts";
@@ -45,8 +46,12 @@ export class Service_google_oauth20
 
           return uri;
         },
-        parse_code_in_cb: (code: string) =>
+        parse_code_in_cb: (qs: Record<string, string>) =>
           Effect.gen(function* () {
+            if (!qs) {
+              yield* new Err_missing_query_string();
+            }
+            const code = qs.code;
             const payload = yield* Effect.tryPromise({
               try: () =>
                 google_oauth2_client
@@ -77,8 +82,6 @@ export class Service_google_oauth20
                   scope: "google_oauth2.0",
                 }),
             });
-
-            console.log(info);
 
             if (!info.email) {
               yield* Effect.fail(

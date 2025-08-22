@@ -1,6 +1,9 @@
 import { Data } from "effect";
 
 type Scope = "google_oauth2.0";
+
+export class Err_missing_query_string
+  extends Data.TaggedError("@Err_missing_query_string") {}
 export class Err_client_getToken
   extends Data.TaggedError("@Err_client_getToken")<
     { err: unknown; scope: Scope }

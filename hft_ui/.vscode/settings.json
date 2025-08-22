@@ -22,5 +22,8 @@
     "dotenv",
     "kita",
     "kitsonk"
-  ]
+  ],
+  "editor.wordWrap": "off",
+  "editor.stickyScroll.enabled": false,
+  "editor.cursorStyle": "block"
 }

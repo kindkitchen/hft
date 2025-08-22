@@ -3,8 +3,8 @@ import { Session } from "../domain/Session.ts";
 import { define } from "../utils.ts";
 
 export const handler = define.middleware(async function AttachSession(ctx) {
-  console.log("routes/_middleware");
   ctx.state.session = null;
+
   const sessionCookies = getCookies(ctx.req.headers).session || null;
 
   if (sessionCookies) {
@@ -24,9 +24,5 @@ export const handler = define.middleware(async function AttachSession(ctx) {
     }
   }
 
-  console.log("session:", ctx.state.session);
-
-  const res = await ctx.next();
-
-  return res;
+  return await ctx.next();
 });
