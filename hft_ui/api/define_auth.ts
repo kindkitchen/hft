@@ -11,9 +11,6 @@ export const define_auth = Effect.gen(function* () {
 
   return new Elysia()
     .use(URL_elysia_plugin())
-    .use(URL_elysia_plugin())
-    .use(URL_elysia_plugin())
-    .use(URL_elysia_plugin())
     .get("/sign-in/google", async ({ redirect, query: { state } }) => {
       const sign_in_url = await generate_sign_in_url({
         state,
