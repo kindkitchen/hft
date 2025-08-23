@@ -5,11 +5,10 @@
     "jsr:@deno/kv-utils@~0.1.4": "0.1.4",
     "jsr:@deno/loader@~0.3.3": "0.3.4",
     "jsr:@fresh/build-id@1": "1.0.0",
-    "jsr:@fresh/core@^2.0.0-alpha.37": "2.0.0-alpha.59",
     "jsr:@fresh/core@^2.0.0-alpha.58": "2.0.0-alpha.59",
     "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9": "0.0.1-alpha.9",
     "jsr:@kitsonk/kv-toolbox@0.30": "0.30.0",
-    "jsr:@std/assert@1": "1.0.13",
+    "jsr:@std/assert@1": "1.0.14",
     "jsr:@std/bytes@1": "1.0.6",
     "jsr:@std/bytes@^1.0.3": "1.0.6",
     "jsr:@std/bytes@^1.0.6": "1.0.6",
@@ -29,7 +28,6 @@
     "jsr:@std/http@^1.0.15": "1.0.20",
     "jsr:@std/http@^1.0.20": "1.0.20",
     "jsr:@std/internal@^1.0.10": "1.0.10",
-    "jsr:@std/json@^1.0.2": "1.0.2",
     "jsr:@std/jsonc@1": "1.0.2",
     "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
@@ -37,23 +35,21 @@
     "jsr:@std/path@1": "1.1.2",
     "jsr:@std/path@^1.1.1": "1.1.2",
     "jsr:@std/semver@1": "1.0.5",
-    "jsr:@std/streams@^1.0.10": "1.0.10",
+    "jsr:@std/streams@^1.0.10": "1.0.11",
     "jsr:@std/uuid@^1.0.7": "1.0.9",
     "npm:@elysiajs/swagger@^1.3.1": "1.3.1_elysia@1.3.13__@sinclair+typebox@0.34.40__exact-mirror@0.1.6___@sinclair+typebox@0.34.40__file-type@21.0.0__openapi-types@12.1.3__typescript@5.9.2_openapi-types@12.1.3",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
-    "npm:@preact/signals@^2.2.1": "2.3.0_preact@10.27.1",
+    "npm:@preact/signals@^2.2.1": "2.3.1_preact@10.27.1",
     "npm:@tailwindcss/postcss@^4.1.10": "4.1.12",
     "npm:@types/node@*": "24.2.0",
-    "npm:@xstate/react@6": "6.0.0_react@19.1.1_xstate@5.20.2",
     "npm:effect@^3.17.7": "3.17.7",
     "npm:elysia@^1.3.13": "1.3.13_@sinclair+typebox@0.34.40_exact-mirror@0.1.6__@sinclair+typebox@0.34.40_file-type@21.0.0_openapi-types@12.1.3_typescript@5.9.2",
     "npm:esbuild-wasm@0.25.7": "0.25.7",
     "npm:esbuild@0.25.7": "0.25.7",
-    "npm:esbuild@~0.25.5": "0.25.7",
     "npm:google-auth-library@^9.15.1": "9.15.1",
     "npm:postcss@8.5.6": "8.5.6",
     "npm:postcss@^8.5.6": "8.5.6",
-    "npm:preact-render-to-string@^6.5.11": "6.6.0_preact@10.27.1",
+    "npm:preact-render-to-string@^6.5.11": "6.6.1_preact@10.27.1",
     "npm:preact@^10.27.0": "10.27.1",
     "npm:preact@^10.27.1": "10.27.1",
     "npm:tailwindcss@^4.1.10": "4.1.12",
@@ -64,8 +60,7 @@
       "integrity": "04ddd0fca9416d8a2866263928a53b9d5ed08dfca064d64504a0aaf9800c709e",
       "dependencies": [
         "jsr:@deno/loader",
-        "jsr:@std/path@^1.1.1",
-        "npm:esbuild@~0.25.5"
+        "jsr:@std/path@^1.1.1"
       ]
     },
     "@deno/kv-utils@0.1.4": {
@@ -100,9 +95,8 @@
         "jsr:@std/semver",
         "jsr:@std/uuid",
         "npm:@opentelemetry/api",
-        "npm:@preact/signals",
+        "npm:esbuild",
         "npm:esbuild-wasm",
-        "npm:esbuild@0.25.7",
         "npm:preact-render-to-string",
         "npm:preact@^10.27.0"
       ]
@@ -110,7 +104,6 @@
     "@fresh/plugin-tailwind@0.0.1-alpha.9": {
       "integrity": "e2cddf75ffd3203950a79913eb35ec454e23df54cb95c7549d14172e5b3c4b59",
       "dependencies": [
-        "jsr:@fresh/core@^2.0.0-alpha.37",
         "npm:@tailwindcss/postcss",
         "npm:postcss@8.5.6"
       ]
@@ -126,8 +119,8 @@
         "jsr:@std/media-types@1"
       ]
     },
-    "@std/assert@1.0.13": {
-      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29"
+    "@std/assert@1.0.14": {
+      "integrity": "68d0d4a43b365abc927f45a9b85c639ea18a9fab96ad92281e493e4ed84abaa4"
     },
     "@std/bytes@1.0.6": {
       "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
@@ -179,14 +172,8 @@
     "@std/internal@1.0.10": {
       "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     },
-    "@std/json@1.0.2": {
-      "integrity": "d9e5497801c15fb679f55a2c01c7794ad7a5dfda4dd1bebab5e409cb5e0d34d4"
-    },
     "@std/jsonc@1.0.2": {
-      "integrity": "909605dae3af22bd75b1cbda8d64a32cf1fd2cf6efa3f9e224aba6d22c0f44c7",
-      "dependencies": [
-        "jsr:@std/json"
-      ]
+      "integrity": "909605dae3af22bd75b1cbda8d64a32cf1fd2cf6efa3f9e224aba6d22c0f44c7"
     },
     "@std/media-types@1.1.0": {
       "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
@@ -203,8 +190,8 @@
     "@std/semver@1.0.5": {
       "integrity": "529f79e83705714c105ad0ba55bec0f9da0f24d2f726b6cc1c15e505cc2c0624"
     },
-    "@std/streams@1.0.10": {
-      "integrity": "75c0b1431873cd0d8b3d679015220204d36d3c7420d93b60acfc379eb0dc30af"
+    "@std/streams@1.0.11": {
+      "integrity": "db583d27e28d133f389f1eec318cffdf4998305e5134c1d4b1c56b361cee6018"
     },
     "@std/uuid@1.0.9": {
       "integrity": "44b627bf2d372fe1bd099e2ad41b2be41a777fc94e62a3151006895a037f1642",
@@ -426,8 +413,8 @@
     "@preact/signals-core@1.12.0": {
       "integrity": "sha512-etWpENXm469RHMWIZGblgWrapbIGcRcbccEGGaLkFez3PjlI3XkBrUtSiNFsIfV/DN16PxMOxbWAZUIaLFyJDg=="
     },
-    "@preact/signals@2.3.0_preact@10.27.1": {
-      "integrity": "sha512-jy11p5XHtm9/3NdpUC9PvZrzGVRWTI+9Wo1Fcv0D8Sb5sNvKvft6zQ5cIO7NVgvSgKLfnkhg6sKygi+Q/QHe5A==",
+    "@preact/signals@2.3.1_preact@10.27.1": {
+      "integrity": "sha512-nyuRIGmcwM/HjvFHhN2xUWfyla9D4llHt+prWoxjQfD6b5prO7CFPlG/xjJkP31Oic4KQXfH9SIhJFP9cy4lmg==",
       "dependencies": [
         "@preact/signals-core",
         "preact"
@@ -610,18 +597,6 @@
       "dependencies": [
         "hookable",
         "zhead"
-      ]
-    },
-    "@xstate/react@6.0.0_react@19.1.1_xstate@5.20.2": {
-      "integrity": "sha512-xXlLpFJxqLhhmecAXclBECgk+B4zYSrDTl8hTfPZBogkn82OHKbm9zJxox3Z/YXoOhAQhKFTRLMYGdlbhc6T9A==",
-      "dependencies": [
-        "react",
-        "use-isomorphic-layout-effect",
-        "use-sync-external-store",
-        "xstate"
-      ],
-      "optionalPeers": [
-        "xstate"
       ]
     },
     "agent-base@7.1.4": {
@@ -959,8 +934,8 @@
         "source-map-js"
       ]
     },
-    "preact-render-to-string@6.6.0_preact@10.27.1": {
-      "integrity": "sha512-O8zGUHcgx4STtNjVuixhR35Qpqzs+P51cgOSvw1mreTle4jgPkR1umylDS/nLvt/W/QHM+7yHmXQqr/lE3yiig==",
+    "preact-render-to-string@6.6.1_preact@10.27.1": {
+      "integrity": "sha512-IIMfXRjmbSP9QmG18WJLQa4Z4yx3J0VC9QN5q9z2XYlWSzFlJ+bSm/AyLyyV/YFwjof1OXFX2Mz6Ao60LXudJg==",
       "dependencies": [
         "preact"
       ]
@@ -970,9 +945,6 @@
     },
     "pure-rand@6.1.0": {
       "integrity": "sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA=="
-    },
-    "react@19.1.1": {
-      "integrity": "sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ=="
     },
     "safe-buffer@5.2.1": {
       "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
@@ -1030,18 +1002,6 @@
     "undici-types@7.10.0": {
       "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
     },
-    "use-isomorphic-layout-effect@1.2.1_react@19.1.1": {
-      "integrity": "sha512-tpZZ+EX0gaghDAiFR37hj5MgY6ZN55kLiPkJsKxBMZ6GZdOSPJXiOzPM984oPYZ5AnehYx5WQp1+ME8I/P/pRA==",
-      "dependencies": [
-        "react"
-      ]
-    },
-    "use-sync-external-store@1.5.0_react@19.1.1": {
-      "integrity": "sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==",
-      "dependencies": [
-        "react"
-      ]
-    },
     "uuid@9.0.1": {
       "integrity": "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==",
       "bin": true
@@ -1070,7 +1030,23 @@
     }
   },
   "redirects": {
-    "https://deno.land/x/deno_kv_insights/mod.ts": "https://deno.land/x/deno_kv_insights@v0.8.4-beta/mod.ts"
+    "https://deno.land/x/deno_kv_insights/mod.ts": "https://deno.land/x/deno_kv_insights@v0.8.4-beta/mod.ts",
+    "https://esm.sh/@types/use-sync-external-store@~1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/shim/index.d.ts": "https://esm.sh/@types/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/shim/index.d.ts",
+    "https://esm.sh/@types/use-sync-external-store@~1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/shim/with-selector.d.ts": "https://esm.sh/@types/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/shim/with-selector.d.ts",
+    "https://esm.sh/@xstate/react?alias=react:preact/compat&deps=react": "https://esm.sh/@xstate/react@6.0.0?alias=react:preact/compat&deps=react",
+    "https://esm.sh/@xstate/react?alias=react:preact/compat&deps=react&external=preact": "https://esm.sh/@xstate/react@6.0.0?alias=react:preact/compat&deps=react&external=preact",
+    "https://esm.sh/@xstate/react?alias=react:preact@10.27.1/compat&deps=react": "https://esm.sh/@xstate/react@6.0.0?alias=react:preact@10.27.1/compat&deps=react",
+    "https://esm.sh/preact/compat?target=denonext": "https://esm.sh/preact@10.27.1/compat?target=denonext",
+    "https://esm.sh/use-isomorphic-layout-effect@^1.1.2?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext",
+    "https://esm.sh/use-isomorphic-layout-effect@^1.1.2?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/use-isomorphic-layout-effect@^1.1.2?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim/with-selector?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/use-sync-external-store@^1.2.0/shim?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext",
+    "https://esm.sh/xstate@^5.20.0?target=denonext": "https://esm.sh/xstate@5.20.2?target=denonext"
   },
   "remote": {
     "https://deno.land/std@0.147.0/bytes/bytes_list.ts": "aba5e2369e77d426b10af1de0dcc4531acecec27f9b9056f4f7bfbf8ac147ab4",
@@ -1144,7 +1120,43 @@
     "https://deno.land/x/deno_kv_insights@v0.8.4-beta/mod.ts": "f8dfb3d726f3f32791ed492c9a3f60d060b481e697ce5cfe65780fe18298eaeb",
     "https://deno.land/x/dir@1.5.1/data_local_dir/mod.ts": "91eb1c4bfadfbeda30171007bac6d85aadacd43224a5ed721bbe56bc64e9eb66",
     "https://deno.land/x/wasmbuild@0.14.1/cache.ts": "89eea5f3ce6035a1164b3e655c95f21300498920575ade23161421f5b01967f4",
-    "https://deno.land/x/wasmbuild@0.14.1/loader.ts": "d98d195a715f823151cbc8baa3f32127337628379a02d9eb2a3c5902dbccfc02"
+    "https://deno.land/x/wasmbuild@0.14.1/loader.ts": "d98d195a715f823151cbc8baa3f32127337628379a02d9eb2a3c5902dbccfc02",
+    "https://esm.sh/@xstate/react@6.0.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/denonext/react.mjs": "4734d274021edc17cc91dc23cba7d2a45e7810cc3edfb56ded6febb1b9c72b14",
+    "https://esm.sh/@xstate/react@6.0.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/denonext/react.mjs": "5577eb62ef0378de7eb6f941e212b29d6fb6fbd54e2bfee089eb2688ba8f198f",
+    "https://esm.sh/@xstate/react@6.0.0/X-YXJlYWN0OnByZWFjdEAxMC4yNy4xL2NvbXBhdApkcmVhY3RAMTkuMS4x/denonext/react.mjs": "a3f748d94bcd811dd78d2d8ff9cfb15995532c3fc016223b2f1f08b64906b322",
+    "https://esm.sh/@xstate/react@6.0.0?alias=react:preact/compat&deps=react": "821e643ed26b0024ae43d6d0ac1386535188e0f48f92a6d096f0e7ba9a1ded6d",
+    "https://esm.sh/@xstate/react@6.0.0?alias=react:preact/compat&deps=react&external=preact": "bc54fe214efe6f1bca59685c0c24bf81372f143c655f7002233dbfcf81cd43bd",
+    "https://esm.sh/@xstate/react@6.0.0?alias=react:preact@10.27.1/compat&deps=react": "dbac47ba92e97ef21e9b4010b59bddd668e1699f40b3cc06948554977cd5376f",
+    "https://esm.sh/preact@10.27.1/compat?target=denonext": "eceb21bc9edb9329f7d1b671d4b957ee924de9a0c8e219f2de03fe47effee388",
+    "https://esm.sh/preact@10.27.1/denonext/compat.mjs": "e0cf162c3d66e6ad88a163be8c6207fbba49ad3c47fa9af2bcafc69552b801ef",
+    "https://esm.sh/preact@10.27.1/denonext/hooks.mjs": "b863367befe25a10375385e3ca6b162697d3678821464fbb02e0c71f2fffd5e3",
+    "https://esm.sh/preact@10.27.1/denonext/preact.mjs": "7c2bf3093184c94176c3ae4dafd0aa801cb15f37f6907779064c4190456eb9c0",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/denonext/use-isomorphic-layout-effect.mjs": "52a2485337413f8c60c55dffaa1f7300ef17b26e24eb99c5701182c21f2048ba",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/denonext/use-isomorphic-layout-effect.mjs": "2e98554603fa5dc8c256be60fadf407f912d46b342f1c7b3c796f4f6e1892684",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1/X-YXJlYWN0OnByZWFjdEAxMC4yNy4xL2NvbXBhdApkcmVhY3RAMTkuMS4x/denonext/use-isomorphic-layout-effect.mjs": "e5178565fc7d730399eee133524bd079629d2496838751af6309fc2f3157a263",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "fca90fa424fb198cb16d2237bc67639c5b02e0140f2c9d38dfd6f2b7458e4a16",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "4d2d045e6342f2204d18ce8de19c75375b80bb9601caaa9fe9f325dfbe10ba2b",
+    "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "fe8d36639ca0d1cfafdd7a43df331948f6f8a56383929af953e1ab6a2ec8e7b5",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/denonext/shim.mjs": "d6a573cf30390f1494fdfea570145b8a7c0496f9288e895367687b99f66fe482",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQ/denonext/shim/with-selector.mjs": "e4c01182bbeae64f5e5e1da58b8b38071451d89a5fc340e52325ea2539f243b0",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/denonext/shim.mjs": "41fc1da9c2182e5030b91ead7e24943cb18fa5914c0c940a78411f701e895cc1",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/denonext/shim/with-selector.mjs": "0a6ef7290291812b42965204d11a6d8321512e497d5d29982767670f69934e0a",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdEAxMC4yNy4xL2NvbXBhdApkcmVhY3RAMTkuMS4x/denonext/shim.mjs": "379aa8d77b586e728ab3d169dc86125a54f653a059376ea59e5d286d7de94c9c",
+    "https://esm.sh/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdEAxMC4yNy4xL2NvbXBhdApkcmVhY3RAMTkuMS4x/denonext/shim/with-selector.mjs": "20daf377fcb26f3a11825c8c3586b7b09a0958c636766f0a76087ae364f92976",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "0e54dd5b17f4d9a60874e5c132fa35bd836c609a9b10815011950a4ce6ccc605",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "e4819ffbfcbc117e5a79df7c45902a34c9ce361981a83bdd5df24afe40f884cb",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "1cef9ed926fdb8cd55a5693ab7347c7ff3a963c3d644b96f13dbdd69ca78ce59",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "b27430e96b211b87f9b52fb912637a0ccd401e196170171b72d6f0d11a721073",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact/compat&deps=react@19.1.1&target=denonext": "faade83579db841078a3b39bcc7ac30652c9feab1564058325cbfedcb4e620fe",
+    "https://esm.sh/use-sync-external-store@1.5.0/shim?alias=react:preact@10.27.1/compat&deps=react@19.1.1&target=denonext": "f066b8c444ca422406dccdc40abb58304cc9adbf5d8c4d312132fdb288dd01c0",
+    "https://esm.sh/xstate@5.20.2/denonext/actors.mjs": "73abe4afb01cfadc9500598eb9c232b6c7181a8aeb5f38b5210fb80033a04235",
+    "https://esm.sh/xstate@5.20.2/denonext/dev.mjs": "1f3c3bae58440f3ff8e9907c6cbc13d40d0440f79f08def95c9d04ff7dfd2008",
+    "https://esm.sh/xstate@5.20.2/denonext/dist/StateMachine-31b70dc4.esm.mjs": "6376f9f303bf89307c23c89ac7818c6a56eda4d9998b2b23da5baaf028f22813",
+    "https://esm.sh/xstate@5.20.2/denonext/dist/assign-828d933a.esm.mjs": "afcfaba125ec4b17560776536c3bd6e82f1752c01efd2be8c26f5fdbd2724d9b",
+    "https://esm.sh/xstate@5.20.2/denonext/dist/log-b74eb32d.esm.mjs": "9e301d90f54ed5cdf75212ddf22e933a2f2f1ed6526e44f037950215ef7dcd68",
+    "https://esm.sh/xstate@5.20.2/denonext/dist/raise-bfb6713e.esm.mjs": "9cdec146e53f9426e3fd5ed4f55bad7ccd1bd9a13c3f1284ca7f9c5d8a14bb2a",
+    "https://esm.sh/xstate@5.20.2/denonext/xstate.mjs": "8187460dee3df4cc5a5c2c2fedbc605a3c06c060ef9ce92230300df98f9be587",
+    "https://esm.sh/xstate@5.20.2?target=denonext": "b367f6d81a9f3bb0fc78734a7d3b92b43a1826c40f6d763057a20173046c1cbd"
   },
   "workspace": {
     "dependencies": [
@@ -1157,7 +1169,6 @@
       "npm:@elysiajs/swagger@^1.3.1",
       "npm:@preact/signals@^2.2.1",
       "npm:@tailwindcss/postcss@^4.1.10",
-      "npm:@xstate/react@6",
       "npm:effect@^3.17.7",
       "npm:elysia@^1.3.13",
       "npm:google-auth-library@^9.15.1",
