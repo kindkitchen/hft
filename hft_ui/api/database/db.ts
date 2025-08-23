@@ -1,8 +1,7 @@
 import { openKvToolbox } from "@kitsonk/kv-toolbox";
 import { DAY } from "@std/datetime";
-import { Session, Session_tag } from "../../domain/Session.ts";
-
-const kv = await openKvToolbox();
+import { Session } from "../../domain/Session.ts";
+import { lib } from "./lib.ts";
 
 export const db = {
   create_session,
@@ -10,18 +9,10 @@ export const db = {
   many_sessions_by_email,
 };
 
-const Session_key = {
-  by_id: (_id: string) => [Session_tag, _id],
-  many_by_email: ({ email }: {
-    email: string;
-  }) => {
-    const for_list = [Session_tag, "many_by_email", email];
-    return {
-      for_list,
-      for_save: (_id: string) => [...for_list, _id],
-    };
-  },
-};
+const kv = await openKvToolbox();
+const {
+  Session_key,
+} = lib;
 
 async function create_session(email: string): Promise<Session> {
   const _id = crypto.randomUUID();
