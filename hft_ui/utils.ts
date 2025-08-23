@@ -2,6 +2,9 @@ import { createDefine } from "fresh";
 import { Session } from "./domain/Session.ts";
 import { MarkRequired } from "./util/utility_types.ts";
 import deno_json from "./deno.json" with { type: "json" };
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const version = deno_json.version;
 export interface State {
   session: null | Session;
@@ -30,3 +33,7 @@ export const gen_auth_guard = (details = "The session is missing") =>
 
     return ctx.next();
   });
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

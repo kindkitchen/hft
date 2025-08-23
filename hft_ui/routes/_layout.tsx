@@ -1,20 +1,14 @@
 import { define } from "../utils.ts";
+import { ContentContainer } from "./(_components)/ContentContainer.tsx";
+import { Header } from "./(_components)/Header.tsx";
 
 export default define.layout(({ Component, state }) => {
   return (
     <>
-      {state.session
-        ? (
-          <div class="flex flex-row-reverse pr-4">
-            <a href="/api/auth/logout">Logout</a>
-          </div>
-        )
-        : (
-          <div>
-            <a href="/api/auth/sign-in/google">Login</a>
-          </div>
-        )}
-      <Component />
+      <Header session={state.session} />
+      <ContentContainer>
+        <Component />
+      </ContentContainer>
     </>
   );
 });

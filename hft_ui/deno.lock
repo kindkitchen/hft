@@ -42,6 +42,7 @@
     "npm:@preact/signals@^2.2.1": "2.3.1_preact@10.27.1",
     "npm:@tailwindcss/postcss@^4.1.10": "4.1.12",
     "npm:@types/node@*": "24.2.0",
+    "npm:clsx@^2.1.1": "2.1.1",
     "npm:effect@^3.17.7": "3.17.7",
     "npm:elysia@^1.3.13": "1.3.13_@sinclair+typebox@0.34.40_exact-mirror@0.1.6__@sinclair+typebox@0.34.40_file-type@21.0.0_openapi-types@12.1.3_typescript@5.9.2",
     "npm:esbuild-wasm@0.25.7": "0.25.7",
@@ -52,6 +53,7 @@
     "npm:preact-render-to-string@^6.5.11": "6.6.1_preact@10.27.1",
     "npm:preact@^10.27.0": "10.27.1",
     "npm:preact@^10.27.1": "10.27.1",
+    "npm:tailwind-merge@^3.3.1": "3.3.1",
     "npm:tailwindcss@^4.1.10": "4.1.12",
     "npm:xstate@^5.20.2": "5.20.2"
   },
@@ -95,6 +97,7 @@
         "jsr:@std/semver",
         "jsr:@std/uuid",
         "npm:@opentelemetry/api",
+        "npm:@preact/signals",
         "npm:esbuild",
         "npm:esbuild-wasm",
         "npm:preact-render-to-string",
@@ -614,6 +617,9 @@
     "chownr@3.0.0": {
       "integrity": "sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g=="
     },
+    "clsx@2.1.1": {
+      "integrity": "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA=="
+    },
     "cookie@1.0.2": {
       "integrity": "sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA=="
     },
@@ -958,6 +964,9 @@
         "@tokenizer/token"
       ]
     },
+    "tailwind-merge@3.3.1": {
+      "integrity": "sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g=="
+    },
     "tailwindcss@4.1.12": {
       "integrity": "sha512-DzFtxOi+7NsFf7DBtI3BJsynR+0Yp6etH+nRPTbpWnS2pZBaSksv/JGctNwSWzbFjp0vxSqknaUylseZqMDGrA=="
     },
@@ -1169,11 +1178,13 @@
       "npm:@elysiajs/swagger@^1.3.1",
       "npm:@preact/signals@^2.2.1",
       "npm:@tailwindcss/postcss@^4.1.10",
+      "npm:clsx@^2.1.1",
       "npm:effect@^3.17.7",
       "npm:elysia@^1.3.13",
       "npm:google-auth-library@^9.15.1",
       "npm:postcss@^8.5.6",
       "npm:preact@^10.27.1",
+      "npm:tailwind-merge@^3.3.1",
       "npm:tailwindcss@^4.1.10",
       "npm:xstate@^5.20.2"
     ]

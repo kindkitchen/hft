@@ -25,5 +25,6 @@
   ],
   "editor.wordWrap": "off",
   "editor.stickyScroll.enabled": false,
-  "editor.cursorStyle": "block"
+  "editor.cursorStyle": "block",
+  "explorer.excludeGitIgnore": true
 }
