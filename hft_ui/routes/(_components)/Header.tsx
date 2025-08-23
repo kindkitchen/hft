@@ -1,13 +1,13 @@
 import { JSX } from "preact/jsx-runtime";
 import { Session } from "../../domain/Session.ts";
 
-interface ContentContainerProps extends JSX.HTMLAttributes<HTMLDivElement> {
+interface HeaderProps extends JSX.HTMLAttributes<HTMLDivElement> {
   session: Session | null;
 }
 
 export function Header({
   session,
-}: ContentContainerProps) {
+}: HeaderProps) {
   if (session) {
     return (
       <div class="flex flex-row-reverse pr-4">
