@@ -1,9 +1,9 @@
 import { deleteCookie, setCookie } from "@std/http";
 import { Effect } from "effect";
 import { Elysia, t } from "elysia";
-import { Session } from "../domain/Session.ts";
 import { Service_google_oauth20 } from "../google_oauth2.0/Service.ts";
 import { URL_elysia_plugin } from "../util/URL_elysia_plugin.ts";
+import { db } from "./database/db.ts";
 
 export const define_auth = Effect.gen(function* () {
   const { generate_sign_in_url, parse_code_in_cb } =
@@ -11,6 +11,20 @@ export const define_auth = Effect.gen(function* () {
 
   return new Elysia()
     .use(URL_elysia_plugin())
+    .get("/whoami", async ({ cookie }) => {
+      const session = cookie.session;
+      if (!session.value) {
+        return null;
+      }
+      const iam = await db.session_by_id(session.value);
+      if (!iam) {
+        return null;
+      }
+
+      return {
+        iam,
+      };
+    })
     .get("/sign-in/google", async ({ redirect, query: { state } }) => {
       const sign_in_url = await generate_sign_in_url({
         state,
@@ -30,13 +44,8 @@ export const define_auth = Effect.gen(function* () {
         const _result = await parse_code_in_cb(query)
           .pipe(
             Effect.map(async ({ info, payload: _p }) => {
-              /// create session
-              const session = Session({
-                email: info.email,
-                _id: crypto.randomUUID(),
-              });
+              const session = await db.create_session(info.email);
 
-              /// update session for client
               setCookie(headers, {
                 name: "session",
                 value: session._id,
