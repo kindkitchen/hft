@@ -12,7 +12,10 @@ const Session_key = {
     };
   },
 };
-
+const SessionState_key = {
+  by_value: (value: string) => ["SessionState", value],
+};
 export const lib = {
   Session_key,
+  SessionState_key,
 };

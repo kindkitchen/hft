@@ -1,5 +1,5 @@
 import { openKvToolbox } from "@kitsonk/kv-toolbox";
-import { DAY } from "@std/datetime";
+import { DAY, MINUTE } from "@std/datetime";
 import { Session } from "../../domain/Session.ts";
 import { lib } from "./lib.ts";
 
@@ -7,12 +7,27 @@ export const db = {
   create_session,
   session_by_id,
   many_sessions_by_email,
+  save_session_state,
+  has_session_state,
 };
 
 const kv = await openKvToolbox();
 const {
   Session_key,
+  SessionState_key,
 } = lib;
+
+async function save_session_state(state: string) {
+  await kv.set(SessionState_key.by_value(state), state, {
+    expireIn: MINUTE,
+  });
+}
+
+async function has_session_state(state: string) {
+  const res = await kv.get<string>(SessionState_key.by_value(state));
+
+  return res.value;
+}
 
 async function create_session(email: string): Promise<Session> {
   const _id = crypto.randomUUID();

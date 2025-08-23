@@ -14,7 +14,7 @@ export const define_auth = Effect.gen(function* () {
     .get("/whoami", async ({ cookie }) => {
       const session = cookie.session;
       if (!session.value) {
-        return null;
+        return {};
       }
       const iam = await db.session_by_id(session.value);
       if (!iam) {
@@ -25,22 +25,43 @@ export const define_auth = Effect.gen(function* () {
         iam,
       };
     })
-    .get("/sign-in/google", async ({ redirect, query: { state } }) => {
+    .get("/sign-in/google", async ({ redirect }) => {
+      const state = crypto.randomUUID();
+      await db.save_session_state(state);
       const sign_in_url = await generate_sign_in_url({
         state,
         scope: ["email"],
       });
 
       return redirect(sign_in_url);
-    }, {
-      query: t.Object({
-        state: t.String(),
-      }),
     })
     .get(
       "/google-callback",
       async ({ query, url, request }) => {
         const headers = new Headers(request.headers);
+        headers.set("location", "/");
+
+        const res = new Response(null, {
+          headers,
+          status: 302,
+        });
+
+        if (!query.state) {
+          console.warn("query[state] is missing");
+
+          return res;
+        }
+
+        const saved = await db.has_session_state(query.state);
+
+        console.log(saved);
+
+        if (!saved) {
+          console.warn("<state> is not identified");
+
+          return res;
+        }
+
         const _result = await parse_code_in_cb(query)
           .pipe(
             Effect.map(async ({ info, payload: _p }) => {
@@ -52,6 +73,7 @@ export const define_auth = Effect.gen(function* () {
                 sameSite: "Lax",
                 domain: url.hostname,
                 path: "/",
+                // httpOnly: true,
                 secure: true,
               });
 
@@ -66,7 +88,6 @@ export const define_auth = Effect.gen(function* () {
             Effect.orElse(() => Effect.succeed("fail")),
             Effect.runPromise,
           );
-        headers.set("location", "/");
 
         return new Response(null, {
           headers,
