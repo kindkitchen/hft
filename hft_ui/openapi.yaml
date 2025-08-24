@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: hft API
+  description: Development documentation
+  version: 0.1.1
+externalDocs:
+  url: /
+  description: UI
+paths:
+  /api/swagger/yaml:
+    get:
+      operationId: getApiSwaggerYaml
+      responses:
+        "200": {}
+  /api/auth/whoami:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  iam: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  iam: {}
+            text/plain:
+              schema:
+                type: object
+                properties:
+                  iam: {}
+      operationId: getApiAuthWhoami
+  /api/auth/sign-in/google:
+    get:
+      operationId: getApiAuthSign-inGoogle
+      responses:
+        "200": {}
+  /api/auth/google-callback:
+    get:
+      operationId: getApiAuthGoogle-callback
+      responses:
+        "200": {}
+  /api/auth/logout:
+    get:
+      operationId: getApiAuthLogout
+      responses:
+        "200": {}
+components:
+  schemas: {}

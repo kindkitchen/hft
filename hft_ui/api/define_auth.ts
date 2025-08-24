@@ -18,12 +18,16 @@ export const define_auth = Effect.gen(function* () {
       }
       const iam = await db.session_by_id(session.value);
       if (!iam) {
-        return null;
+        return {};
       }
 
       return {
         iam,
       };
+    }, {
+      response: t.Object({
+        iam: t.Optional(t.Any()),
+      }),
     })
     .get("/sign-in/google", async ({ redirect }) => {
       const state = crypto.randomUUID();

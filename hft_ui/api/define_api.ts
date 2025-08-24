@@ -4,6 +4,7 @@ import { Elysia } from "elysia";
 import { define_auth } from "./define_auth.ts";
 import { version } from "../utils.ts";
 import { URL_elysia_plugin } from "../util/URL_elysia_plugin.ts";
+import * as Yaml from "@std/yaml";
 
 export const define_api = (options: {
   prefix: string;
@@ -30,5 +31,17 @@ export const define_api = (options: {
           },
         },
       }))
+      .get("/swagger/yaml", async ({ url }) => {
+        const json = await fetch(`${url.origin}/api/swagger/json`)
+          .then((r) => r.json());
+
+        const yaml_str = Yaml.stringify(json);
+
+        return new Response(yaml_str, {
+          headers: {
+            "content-type": "text/yaml",
+          },
+        });
+      })
       .use(new Elysia({ prefix: "/auth" }).use(auth));
   });
