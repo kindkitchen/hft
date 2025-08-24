@@ -4,7 +4,23 @@
  */
 
 export type GetApiAuthWhoami200 = {
-  iam?: any;
+  /**
+   * @type object | undefined
+   */
+  iam?: {
+    /**
+     * @type string
+     */
+    _tag: string;
+    /**
+     * @type string
+     */
+    _id: string;
+    /**
+     * @type string
+     */
+    email: string;
+  };
 };
 
 export type GetApiAuthWhoamiQueryResponse = GetApiAuthWhoami200;

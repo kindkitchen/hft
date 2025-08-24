@@ -1,4 +1,4 @@
-// deno-lint-ignore-file no-explicit-any
+// deno-lint-ignore-file no-explicit-any ban-types
 export type Tail<T extends any[]> = T extends [infer _first, ...infer Rest]
   ? Rest
   : never;
@@ -31,3 +31,10 @@ export type MarkOptional<T extends Record<string, any>, K extends keyof T> =
       [Key in K]: T[Key];
     }
   >;
+
+export type ShouldBeSameType<A, B> = A extends B ? B extends A ? A : B : A;
+export type Prettify<T> =
+  & {
+    [K in keyof T]: Prettify<T[K]>;
+  }
+  & {};

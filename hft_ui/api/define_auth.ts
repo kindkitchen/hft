@@ -1,6 +1,7 @@
 import { deleteCookie, setCookie } from "@std/http";
 import { Effect } from "effect";
 import { Elysia, t } from "elysia";
+import { Session_tag } from "../domain/Session.ts";
 import { Service_google_oauth20 } from "../google_oauth2.0/Service.ts";
 import { URL_elysia_plugin } from "../util/URL_elysia_plugin.ts";
 import { db } from "./database/db.ts";
@@ -17,6 +18,7 @@ export const define_auth = Effect.gen(function* () {
         return {};
       }
       const iam = await db.session_by_id(session.value);
+
       if (!iam) {
         return {};
       }
@@ -25,9 +27,19 @@ export const define_auth = Effect.gen(function* () {
         iam,
       };
     }, {
-      response: t.Object({
-        iam: t.Optional(t.Any()),
-      }),
+      detail: {
+        description:
+          "If present - return Session, associated with user, otherwise - empty object",
+      },
+      response: {
+        200: t.Object({
+          iam: t.Optional(t.Object({
+            _tag: t.Literal(Session_tag),
+            _id: t.String(),
+            email: t.String(),
+          })),
+        }),
+      },
     })
     .get("/sign-in/google", async ({ redirect }) => {
       const state = crypto.randomUUID();
