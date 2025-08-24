@@ -89,7 +89,7 @@ export const define_auth = Effect.gen(function* () {
                 sameSite: "Lax",
                 domain: url.hostname,
                 path: "/",
-                // httpOnly: true,
+                httpOnly: true,
                 secure: true,
               });
 
