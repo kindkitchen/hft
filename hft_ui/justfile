@@ -29,3 +29,9 @@ commit:
 install:
     pwd
     deno install --allow-scripts
+
+apidoc:
+    curl http://localhost:9000/api/swagger/json -o openapi.json
+    mkdir -p openapi
+    deno run -A npm:kubb generate
+    deno fmt

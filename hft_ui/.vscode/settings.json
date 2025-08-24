@@ -18,10 +18,12 @@
     ".vscode/tailwind.json"
   ],
   "cSpell.words": [
+    "apidoc",
     "asynciterable",
     "dotenv",
     "kita",
-    "kitsonk"
+    "kitsonk",
+    "kubb"
   ],
   "editor.wordWrap": "off",
   "editor.stickyScroll.enabled": false,
