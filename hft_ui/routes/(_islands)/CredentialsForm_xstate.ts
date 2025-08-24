@@ -13,7 +13,6 @@ export const machine = setup({
   types: {
     context: {} as {
       credentials: string;
-      credentials_masked: string;
       ready_to_submit: boolean;
       errors_related_to_format_of_the_content: string[];
       errors_from_prev_response: string[];
@@ -30,17 +29,9 @@ export const machine = setup({
     assign_content: assign(({ event }) => {
       assertEvent(event, "change");
       const { content } = event;
-      const masked = [] as string[];
-      for (const char of content) {
-        if (/\s/.test(char)) {
-          masked.push(char);
-        } else {
-          masked.push("*");
-        }
-      }
+
       return {
         credentials: content,
-        credentials_masked: masked.join(""),
       };
     }),
     validate_content: assign(({ event }) => {
@@ -75,7 +66,6 @@ export const machine = setup({
   context: () => {
     return {
       credentials: "",
-      credentials_masked: "",
       errors_related_to_format_of_the_content: [],
       errors_from_prev_response: [],
       ready_to_submit: false,
