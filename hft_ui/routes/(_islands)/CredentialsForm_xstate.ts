@@ -26,6 +26,9 @@ export const machine = setup({
     clear_errors_related_to_the_format_of_the_content: assign({
       errors_related_to_format_of_the_content: [],
     }),
+    clear_errors_from_api_res: assign({
+      errors_from_prev_response: [],
+    }),
     assign_content: assign(({ event }) => {
       assertEvent(event, "change");
       const { content } = event;
@@ -41,6 +44,10 @@ export const machine = setup({
       if (!REGEX_ONLY_THREE_LINES.test(content)) {
         errors.push(
           "You should paste on new line each of the API_KEY, API_SECRET and PASSPHRASE",
+        );
+      } else if (content.trim().split(/\s+/).length > 3) {
+        errors.push(
+          "Too many lines... should be exactly 3. One for key, one for secret and one for passphrase",
         );
       }
       return {
@@ -142,6 +149,7 @@ export const machine = setup({
     },
     Submitting: {
       id: "Submitting_state",
+      entry: "clear_errors_from_api_res",
       invoke: {
         src: "MakeSubmit",
         input: () => {
