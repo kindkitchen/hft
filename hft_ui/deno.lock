@@ -6,6 +6,8 @@
     "jsr:@deno/loader@~0.3.3": "0.3.4",
     "jsr:@fresh/build-id@1": "1.0.0",
     "jsr:@fresh/core@2.0.0-alpha.58": "2.0.0-alpha.58",
+    "jsr:@fresh/core@^2.0.0-alpha.37": "2.0.0-alpha.63",
+    "jsr:@fresh/core@^2.0.0-alpha.63": "2.0.0-alpha.63",
     "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9": "0.0.1-alpha.9",
     "jsr:@kitsonk/kv-toolbox@0.30": "0.30.0",
     "jsr:@std/assert@1": "1.0.14",
@@ -27,6 +29,7 @@
     "jsr:@std/http@^1.0.15": "1.0.20",
     "jsr:@std/http@^1.0.20": "1.0.20",
     "jsr:@std/internal@^1.0.10": "1.0.10",
+    "jsr:@std/json@^1.0.2": "1.0.2",
     "jsr:@std/jsonc@1": "1.0.2",
     "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
@@ -38,17 +41,20 @@
     "jsr:@std/uuid@^1.0.7": "1.0.9",
     "jsr:@std/yaml@^1.0.9": "1.0.9",
     "npm:@elysiajs/swagger@^1.3.1": "1.3.1_elysia@1.3.20__@sinclair+typebox@0.34.40__exact-mirror@0.1.6___@sinclair+typebox@0.34.40__file-type@21.0.0__openapi-types@12.1.3__typescript@5.9.2_openapi-types@12.1.3",
-    "npm:@kubb/cli@^3.18.1": "3.18.2",
-    "npm:@kubb/core@^3.18.1": "3.18.2",
-    "npm:@kubb/plugin-oas@^3.18.1": "3.18.2_@kubb+react@3.18.2__react@19.1.1",
-    "npm:@kubb/plugin-ts@^3.18.1": "3.18.2_@kubb+react@3.18.2__react@19.1.1",
+    "npm:@kubb/cli@^3.18.2": "3.18.2",
+    "npm:@kubb/core@^3.18.2": "3.18.2",
+    "npm:@kubb/plugin-oas@^3.18.2": "3.18.2_@kubb+react@3.18.2__react@19.1.1",
+    "npm:@kubb/plugin-ts@^3.18.2": "3.18.2_@kubb+react@3.18.2__react@19.1.1",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@^2.2.1": "2.3.1_preact@10.27.1",
+    "npm:@preact/signals@^2.3.1": "2.3.1_preact@10.27.1",
     "npm:@tailwindcss/postcss@^4.1.10": "4.1.12",
+    "npm:@tailwindcss/postcss@^4.1.12": "4.1.12",
+    "npm:@types/node@*": "24.2.0",
     "npm:@xstate/react@*": "6.0.0_react@19.1.1_xstate@5.20.2",
     "npm:clsx@^2.1.1": "2.1.1",
-    "npm:effect@^3.17.7": "3.17.9",
-    "npm:elysia@^1.3.13": "1.3.20_@sinclair+typebox@0.34.40_exact-mirror@0.1.6__@sinclair+typebox@0.34.40_file-type@21.0.0_openapi-types@12.1.3_typescript@5.9.2",
+    "npm:effect@^3.17.9": "3.17.9",
+    "npm:elysia@^1.3.20": "1.3.20_@sinclair+typebox@0.34.40_exact-mirror@0.1.6__@sinclair+typebox@0.34.40_file-type@21.0.0_openapi-types@12.1.3_typescript@5.9.2",
     "npm:esbuild-wasm@0.25.7": "0.25.7",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.7",
@@ -59,7 +65,7 @@
     "npm:preact@^10.27.0": "10.27.1",
     "npm:preact@^10.27.1": "10.27.1",
     "npm:tailwind-merge@^3.3.1": "3.3.1",
-    "npm:tailwindcss@^4.1.10": "4.1.12",
+    "npm:tailwindcss@^4.1.12": "4.1.12",
     "npm:xstate@^5.20.2": "5.20.2"
   },
   "jsr": {
@@ -67,7 +73,8 @@
       "integrity": "04ddd0fca9416d8a2866263928a53b9d5ed08dfca064d64504a0aaf9800c709e",
       "dependencies": [
         "jsr:@deno/loader",
-        "jsr:@std/path@^1.1.1"
+        "jsr:@std/path@^1.1.1",
+        "npm:esbuild@~0.25.5"
       ]
     },
     "@deno/kv-utils@0.1.4": {
@@ -102,7 +109,30 @@
         "jsr:@std/semver",
         "jsr:@std/uuid",
         "npm:@opentelemetry/api",
+        "npm:@preact/signals@^2.2.1",
         "npm:esbuild-wasm",
+        "npm:esbuild@0.25.7",
+        "npm:preact-render-to-string",
+        "npm:preact@^10.27.0"
+      ]
+    },
+    "@fresh/core@2.0.0-alpha.63": {
+      "integrity": "adac4860447b42eb8e33362d6ec47052c923444ef44bcb6ea3a4c193e150046a",
+      "dependencies": [
+        "jsr:@deno/esbuild-plugin",
+        "jsr:@fresh/build-id",
+        "jsr:@std/encoding@1",
+        "jsr:@std/fmt",
+        "jsr:@std/fs@1",
+        "jsr:@std/html@1",
+        "jsr:@std/http@^1.0.15",
+        "jsr:@std/jsonc",
+        "jsr:@std/media-types@1",
+        "jsr:@std/path@1",
+        "jsr:@std/semver",
+        "jsr:@std/uuid",
+        "npm:@opentelemetry/api",
+        "npm:@preact/signals@^2.2.1",
         "npm:esbuild@0.25.7",
         "npm:preact-render-to-string",
         "npm:preact@^10.27.0"
@@ -111,7 +141,8 @@
     "@fresh/plugin-tailwind@0.0.1-alpha.9": {
       "integrity": "e2cddf75ffd3203950a79913eb35ec454e23df54cb95c7549d14172e5b3c4b59",
       "dependencies": [
-        "npm:@tailwindcss/postcss",
+        "jsr:@fresh/core@^2.0.0-alpha.37",
+        "npm:@tailwindcss/postcss@^4.1.10",
         "npm:postcss@8.5.6"
       ]
     },
@@ -176,8 +207,14 @@
     "@std/internal@1.0.10": {
       "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     },
+    "@std/json@1.0.2": {
+      "integrity": "d9e5497801c15fb679f55a2c01c7794ad7a5dfda4dd1bebab5e409cb5e0d34d4"
+    },
     "@std/jsonc@1.0.2": {
-      "integrity": "909605dae3af22bd75b1cbda8d64a32cf1fd2cf6efa3f9e224aba6d22c0f44c7"
+      "integrity": "909605dae3af22bd75b1cbda8d64a32cf1fd2cf6efa3f9e224aba6d22c0f44c7",
+      "dependencies": [
+        "jsr:@std/json"
+      ]
     },
     "@std/media-types@1.1.0": {
       "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
@@ -892,6 +929,12 @@
     },
     "@types/json-schema@7.0.15": {
       "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
+    },
+    "@types/node@24.2.0": {
+      "integrity": "sha512-3xyG3pMCq3oYCNg7/ZP+E1ooTaGB4cG8JWRsqqOYQdbWNY4zbaV0Ennrd7stjiJEFZCaybcIgpTjJWHRfBSIDw==",
+      "dependencies": [
+        "undici-types"
+      ]
     },
     "@types/tinycolor2@1.4.6": {
       "integrity": "sha512-iEN8J0BoMnsWBqjVbWH/c0G0Hh7O21lpR2/+PrvAVgWdzL7eexIFm4JN/Wn10PTcmNdtS6U67r499mlWMXOxNw=="
@@ -2197,6 +2240,9 @@
     "uint8array-extras@1.5.0": {
       "integrity": "sha512-rvKSBiC5zqCCiDZ9kAOszZcDvdAHwwIKJG33Ykj43OKcWsnmcBRL09YTU4nOeHZ8Y2a7l1MgTd08SBe9A8Qj6A=="
     },
+    "undici-types@7.10.0": {
+      "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
+    },
     "unicorn-magic@0.1.0": {
       "integrity": "sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ=="
     },
@@ -2335,6 +2381,8 @@
     }
   },
   "redirects": {
+    "https://esm.sh/@types/use-sync-external-store@~1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/shim/index.d.ts": "https://esm.sh/@types/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/shim/index.d.ts",
+    "https://esm.sh/@types/use-sync-external-store@~1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/shim/with-selector.d.ts": "https://esm.sh/@types/use-sync-external-store@1.5.0/X-YXJlYWN0OnByZWFjdC9jb21wYXQKZHJlYWN0QDE5LjEuMQplcHJlYWN0/shim/with-selector.d.ts",
     "https://esm.sh/@xstate/react?alias=react:preact/compat&deps=react&external=preact": "https://esm.sh/@xstate/react@6.0.0?alias=react:preact/compat&deps=react&external=preact",
     "https://esm.sh/use-isomorphic-layout-effect@^1.1.2?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "https://esm.sh/use-isomorphic-layout-effect@1.2.1?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext",
     "https://esm.sh/use-sync-external-store@^1.2.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext": "https://esm.sh/use-sync-external-store@1.5.0/shim/with-selector?alias=react:preact/compat&deps=react@19.1.1&external=preact&target=denonext",
@@ -2362,6 +2410,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@fresh/core@2.0.0-alpha.58",
+      "jsr:@fresh/core@^2.0.0-alpha.63",
       "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.9",
       "jsr:@kitsonk/kv-toolbox@0.30",
       "jsr:@std/datetime@~0.225.5",
@@ -2369,20 +2418,20 @@
       "jsr:@std/http@^1.0.20",
       "jsr:@std/yaml@^1.0.9",
       "npm:@elysiajs/swagger@^1.3.1",
-      "npm:@kubb/cli@^3.18.1",
-      "npm:@kubb/core@^3.18.1",
-      "npm:@kubb/plugin-oas@^3.18.1",
-      "npm:@kubb/plugin-ts@^3.18.1",
-      "npm:@preact/signals@^2.2.1",
-      "npm:@tailwindcss/postcss@^4.1.10",
+      "npm:@kubb/cli@^3.18.2",
+      "npm:@kubb/core@^3.18.2",
+      "npm:@kubb/plugin-oas@^3.18.2",
+      "npm:@kubb/plugin-ts@^3.18.2",
+      "npm:@preact/signals@^2.3.1",
+      "npm:@tailwindcss/postcss@^4.1.12",
       "npm:clsx@^2.1.1",
-      "npm:effect@^3.17.7",
-      "npm:elysia@^1.3.13",
+      "npm:effect@^3.17.9",
+      "npm:elysia@^1.3.20",
       "npm:google-auth-library@^9.15.1",
       "npm:postcss@^8.5.6",
       "npm:preact@^10.27.1",
       "npm:tailwind-merge@^3.3.1",
-      "npm:tailwindcss@^4.1.10",
+      "npm:tailwindcss@^4.1.12",
       "npm:xstate@^5.20.2"
     ]
   }
