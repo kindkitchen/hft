@@ -1,10 +1,10 @@
 import { swagger } from "@elysiajs/swagger";
+import * as Yaml from "@std/yaml";
 import { Effect } from "effect";
 import { Elysia } from "elysia";
-import { define_auth } from "./define_auth.ts";
-import { version } from "../utils.ts";
 import { URL_elysia_plugin } from "../util/URL_elysia_plugin.ts";
-import * as Yaml from "@std/yaml";
+import { version } from "../utils.ts";
+import { define_auth } from "./define_auth.ts";
 
 export const define_api = (options: {
   prefix: string;
@@ -14,15 +14,13 @@ export const define_api = (options: {
     const auth = yield* define_auth;
     const {
       prefix,
-      swagger_path: path,
     } = options;
 
-    return new Elysia({
+    const api = new Elysia({
       prefix,
     })
       .use(URL_elysia_plugin())
       .use(swagger({
-        path,
         documentation: {
           info: { title: "hft API", version },
           externalDocs: {
@@ -32,16 +30,13 @@ export const define_api = (options: {
         },
       }))
       .get("/swagger/yaml", async ({ url }) => {
-        const json = await fetch(`${url.origin}/api/swagger/json`)
-          .then((r) => r.json());
+        const json = await api.handle(
+          new Request(`${url.origin}${prefix}/swagger/json`),
+        ).then((r) => r.json());
 
-        const yaml_str = Yaml.stringify(json);
-
-        return new Response(yaml_str, {
-          headers: {
-            "content-type": "text/yaml",
-          },
-        });
+        return Yaml.stringify(json);
       })
       .use(new Elysia({ prefix: "/auth" }).use(auth));
+
+    return api;
   });
