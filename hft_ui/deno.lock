@@ -41,6 +41,7 @@
     "jsr:@std/uuid@^1.0.7": "1.0.9",
     "jsr:@std/yaml@^1.0.9": "1.0.9",
     "npm:@elysiajs/swagger@^1.3.1": "1.3.1_elysia@1.3.20__@sinclair+typebox@0.34.40__exact-mirror@0.1.6___@sinclair+typebox@0.34.40__file-type@21.0.0__openapi-types@12.1.3__typescript@5.9.2_openapi-types@12.1.3",
+    "npm:@kubb/cli@*": "3.18.2",
     "npm:@kubb/cli@^3.18.2": "3.18.2",
     "npm:@kubb/core@^3.18.2": "3.18.2",
     "npm:@kubb/plugin-oas@^3.18.2": "3.18.2_@kubb+react@3.18.2__react@19.1.1",
