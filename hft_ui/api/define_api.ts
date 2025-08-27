@@ -35,6 +35,10 @@ export const define_api = (options: {
         ).then((r) => r.json());
 
         return Yaml.stringify(json);
+      }, {
+        detail: {
+          hide: true,
+        },
       })
       .use(new Elysia({ prefix: "/auth" }).use(auth));
 

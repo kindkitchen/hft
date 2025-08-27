@@ -7,88 +7,25 @@ externalDocs:
   url: /
   description: UI
 paths:
-  /api/swagger/yaml:
-    get:
-      operationId: getApiSwaggerYaml
-      responses:
-        "200": {}
   /api/auth/whoami:
     get:
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  iam:
-                    type: object
-                    properties:
-                      _tag:
-                        const: Session
-                        type: string
-                      _id:
-                        type: string
-                      email:
-                        type: string
-                    required:
-                      - _tag
-                      - _id
-                      - email
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  iam:
-                    type: object
-                    properties:
-                      _tag:
-                        const: Session
-                        type: string
-                      _id:
-                        type: string
-                      email:
-                        type: string
-                    required:
-                      - _tag
-                      - _id
-                      - email
-            text/plain:
-              schema:
-                type: object
-                properties:
-                  iam:
-                    type: object
-                    properties:
-                      _tag:
-                        const: Session
-                        type: string
-                      _id:
-                        type: string
-                      email:
-                        type: string
-                    required:
-                      - _tag
-                      - _id
-                      - email
+          description: >-
+            If present - return Session, associated with user, otherwise - empty
+            object
       operationId: getApiAuthWhoami
-      description: >-
-        If present - return Session, associated with user, otherwise - empty
-        object
-  /api/auth/sign-in/google:
-    get:
-      operationId: getApiAuthSign-inGoogle
-      responses:
-        "200": {}
   /api/auth/google-callback:
     get:
-      operationId: getApiAuthGoogle-callback
       responses:
-        "200": {}
+        "302":
+          description: Redirect user back to application.
+      operationId: getApiAuthGoogle-callback
   /api/auth/logout:
     get:
-      operationId: getApiAuthLogout
       responses:
-        "200": {}
+        "204":
+          description: Remove session from cookies
+      operationId: getApiAuthLogout
 components:
   schemas: {}

@@ -3,29 +3,14 @@
  * Do not edit manually.
  */
 
-export type GetApiAuthWhoami200 = {
-  /**
-   * @type object | undefined
-   */
-  iam?: {
-    /**
-     * @type string
-     */
-    _tag: string;
-    /**
-     * @type string
-     */
-    _id: string;
-    /**
-     * @type string
-     */
-    email: string;
-  };
-};
+/**
+ * @description If present - return Session, associated with user, otherwise - empty object
+ */
+export type GetApiAuthWhoami200 = any
 
-export type GetApiAuthWhoamiQueryResponse = GetApiAuthWhoami200;
+export type GetApiAuthWhoamiQueryResponse = GetApiAuthWhoami200
 
 export type GetApiAuthWhoamiQuery = {
-  Response: GetApiAuthWhoami200;
-  Errors: any;
-};
+  Response: GetApiAuthWhoami200
+  Errors: any
+}

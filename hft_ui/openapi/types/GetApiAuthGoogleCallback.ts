@@ -3,11 +3,14 @@
  * Do not edit manually.
  */
 
-export type GetApiAuthGoogleCallback200 = any;
+/**
+ * @description Redirect user back to application.
+ */
+export type GetApiAuthGoogleCallback302 = any
 
-export type GetApiAuthGoogleCallbackQueryResponse = GetApiAuthGoogleCallback200;
+export type GetApiAuthGoogleCallbackQueryResponse = any
 
 export type GetApiAuthGoogleCallbackQuery = {
-  Response: GetApiAuthGoogleCallback200;
-  Errors: any;
-};
+  Response: any
+  Errors: any
+}

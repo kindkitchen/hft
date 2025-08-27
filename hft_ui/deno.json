@@ -13,7 +13,11 @@
     "fmt-sql",
     "cron"
   ],
+  "fmt": {
+    "exclude": ["./openapi"]
+  },
   "lint": {
+    "exclude": ["./openapi"],
     "rules": {
       "exclude": [
         "require-yield"
@@ -29,6 +33,7 @@
   ],
   "imports": {
     "@elysiajs/swagger": "npm:@elysiajs/swagger@^1.3.1",
+    "@fresh/core": "jsr:@fresh/core@2.0.0-alpha.58",
     "@kitsonk/kv-toolbox": "jsr:@kitsonk/kv-toolbox@^0.30.0",
     "@kubb/cli": "npm:@kubb/cli@^3.18.1",
     "@kubb/core": "npm:@kubb/core@^3.18.1",
@@ -42,7 +47,7 @@
     "clsx": "npm:clsx@^2.1.1",
     "effect": "npm:effect@^3.17.7",
     "elysia": "npm:elysia@^1.3.13",
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.58",
+    "fresh": "jsr:@fresh/core@2.0.0-alpha.58",
     "google-auth-library": "npm:google-auth-library@^9.15.1",
     "preact": "npm:preact@^10.27.1",
     "@preact/signals": "npm:@preact/signals@^2.2.1",

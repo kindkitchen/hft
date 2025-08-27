@@ -3,11 +3,14 @@
  * Do not edit manually.
  */
 
-export type GetApiAuthLogout200 = any;
+/**
+ * @description Remove session from cookies
+ */
+export type GetApiAuthLogout204 = any
 
-export type GetApiAuthLogoutQueryResponse = GetApiAuthLogout200;
+export type GetApiAuthLogoutQueryResponse = GetApiAuthLogout204
 
 export type GetApiAuthLogoutQuery = {
-  Response: GetApiAuthLogout200;
-  Errors: any;
-};
+  Response: GetApiAuthLogout204
+  Errors: any
+}

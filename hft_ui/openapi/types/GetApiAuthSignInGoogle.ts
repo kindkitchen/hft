@@ -3,11 +3,14 @@
  * Do not edit manually.
  */
 
-export type GetApiAuthSignInGoogle200 = any;
+/**
+ * @description Redirect to google auth screen. (And then back to application)
+ */
+export type GetApiAuthSignInGoogle302 = any;
 
-export type GetApiAuthSignInGoogleQueryResponse = GetApiAuthSignInGoogle200;
+export type GetApiAuthSignInGoogleQueryResponse = any;
 
 export type GetApiAuthSignInGoogleQuery = {
-  Response: GetApiAuthSignInGoogle200;
+  Response: any;
   Errors: any;
 };

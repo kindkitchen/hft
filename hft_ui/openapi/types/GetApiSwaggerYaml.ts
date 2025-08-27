@@ -3,6 +3,9 @@
  * Do not edit manually.
  */
 
+/**
+ * @description Parse swagger json to yaml format
+ */
 export type GetApiSwaggerYaml200 = any;
 
 export type GetApiSwaggerYamlQueryResponse = GetApiSwaggerYaml200;
