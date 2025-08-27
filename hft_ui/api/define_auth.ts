@@ -56,7 +56,12 @@ export const define_auth = Effect.gen(function* () {
       return redirect(sign_in_url);
     }, {
       detail: {
-        hide: true,
+        responses: {
+          302: {
+            description:
+              "Redirect to google auth screen (then back to '/', possibly with obtained session)",
+          },
+        },
       },
     })
     .get(
@@ -113,11 +118,7 @@ export const define_auth = Effect.gen(function* () {
           302: t.String(),
         },
         detail: {
-          responses: {
-            302: {
-              description: "Redirect user back to application.",
-            },
-          },
+          hide: true,
         },
       },
     )

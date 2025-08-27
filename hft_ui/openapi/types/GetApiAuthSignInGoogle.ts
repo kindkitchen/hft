@@ -4,13 +4,13 @@
  */
 
 /**
- * @description Redirect to google auth screen. (And then back to application)
+ * @description Redirect to google auth screen (then back to \'/\', possibly with obtained session)
  */
-export type GetApiAuthSignInGoogle302 = any;
+export type GetApiAuthSignInGoogle302 = any
 
-export type GetApiAuthSignInGoogleQueryResponse = any;
+export type GetApiAuthSignInGoogleQueryResponse = any
 
 export type GetApiAuthSignInGoogleQuery = {
-  Response: any;
-  Errors: any;
-};
+  Response: any
+  Errors: any
+}

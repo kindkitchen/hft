@@ -15,12 +15,14 @@ paths:
             If present - return Session, associated with user, otherwise - empty
             object
       operationId: getApiAuthWhoami
-  /api/auth/google-callback:
+  /api/auth/sign-in/google:
     get:
+      operationId: getApiAuthSign-inGoogle
       responses:
         "302":
-          description: Redirect user back to application.
-      operationId: getApiAuthGoogle-callback
+          description: >-
+            Redirect to google auth screen (then back to '/', possibly with
+            obtained session)
   /api/auth/logout:
     get:
       responses:
