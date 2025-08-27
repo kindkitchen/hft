@@ -5,7 +5,8 @@ import { Builder } from "fresh/dev";
 
 const builder = new Builder();
 
-tailwind(builder);
+tailwind(builder as any /// TODO: resolve type, correct versions, etc.
+);
 
 if (Deno.args.includes("build")) {
   await builder.build();
