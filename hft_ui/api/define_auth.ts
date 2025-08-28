@@ -122,60 +122,70 @@ export const define_auth = Effect.gen(function* () {
         },
       },
     )
-    .get("/logout", ({ cookie, status }) => {
-      cookie.session.remove();
+    .use(
+      new Elysia()
+        .use(URL_elysia_plugin)
+        .onBeforeHandle(({ cookie }) => {
+          console.warn("TODO: rm session not only from cookies");
+          cookie.session.remove();
+        })
+        .delete("/logout", ({ status }) => {
+          return status(204, undefined);
+        }, {
+          response: {
+            204: t.Void(),
+          },
+          mapResponse: /// TODO: check!
+            /// Does Elysia solve the problem with really empty body, when `status(204, undefined)`?
+            /// because now, the `mapResponse` is aka fix for this problem
+            /// (there are any logic, related to application)
+            ({ set }) => {
+              if (set.status !== 204) return;
+              const headers = new Headers(
+                Object.fromEntries(
+                  Object.entries(set.headers).filter(([, v]) => !!v),
+                ) as Record<string, string>,
+              );
 
-      return status(204, undefined);
-    }, {
-      response: {
-        204: t.Void(),
-      },
-      mapResponse: /// TODO: check!
-        /// Does Elysia solve the problem with really empty body, when `status(204, undefined)`?
-        /// because now, the `mapResponse` is aka fix for this problem
-        /// (there are any logic, related to application)
-        ({ set }) => {
-          if (set.status !== 204) return;
-          const headers = new Headers(
-            Object.fromEntries(
-              Object.entries(set.headers).filter(([, v]) => !!v),
-            ) as Record<string, string>,
-          );
-
-          if (set.cookie) {
-            for (const [name, cookie] of Object.entries(set.cookie)) {
-              const {
-                value,
-                sameSite,
-                ...rest
-              } = cookie;
-              if (value) {
-                setCookie(headers, {
-                  name,
-                  ...rest,
-                  value: value as string,
-                  ...(!!sameSite &&
-                    {
-                      sameSite: sameSite === "lax"
-                        ? "Lax"
-                        : sameSite === "none"
-                        ? "None"
-                        : "Strict",
-                    }),
-                });
+              if (set.cookie) {
+                for (const [name, cookie] of Object.entries(set.cookie)) {
+                  const {
+                    value,
+                    sameSite,
+                    ...rest
+                  } = cookie;
+                  if (value) {
+                    setCookie(headers, {
+                      name,
+                      ...rest,
+                      value: value as string,
+                      ...(!!sameSite &&
+                        {
+                          sameSite: sameSite === "lax"
+                            ? "Lax"
+                            : sameSite === "none"
+                            ? "None"
+                            : "Strict",
+                        }),
+                    });
+                  }
+                }
               }
-            }
-          }
 
-          return new Response(null, {
-            status: 204,
-            headers,
-          });
-        },
-      detail: {
-        responses: {
-          204: { description: "Remove session from cookies" },
-        },
-      },
-    });
+              return new Response(null, {
+                status: 204,
+                headers,
+              });
+            },
+          detail: {
+            responses: {
+              204: { description: "Remove session from cookies" },
+            },
+          },
+        })
+        .get("/logout", ({ url, set }) => {
+          set.headers.location = url.origin;
+          set.status = 302;
+        }),
+    );
 });

@@ -1,5 +1,6 @@
 import { JSX } from "preact/jsx-runtime";
 import { Session } from "../../domain/Session.ts";
+import { Link } from "../../ui_primitives/Link.tsx";
 
 interface HeaderProps extends JSX.HTMLAttributes<HTMLDivElement> {
   session: Session | null;
@@ -8,17 +9,27 @@ interface HeaderProps extends JSX.HTMLAttributes<HTMLDivElement> {
 export function Header({
   session,
 }: HeaderProps) {
+  let AuthButton: JSX.Element;
   if (session) {
-    return (
-      <div class="flex flex-row-reverse pr-4">
-        <a href="/api/auth/logout">Logout</a>
-      </div>
+    AuthButton = (
+      <Link
+        variant="outline"
+        href="/api/auth/logout"
+      >
+        Logout
+      </Link>
+    );
+  } else {
+    AuthButton = (
+      <Link variant="outline" href="/api/auth/sign-in/google">
+        Login
+      </Link>
     );
   }
 
   return (
-    <div>
-      <a href="/api/auth/sign-in/google">Login</a>
+    <div class="p-2 flex justify-center">
+      {AuthButton}
     </div>
   );
 }
