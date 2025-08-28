@@ -1,6 +1,5 @@
-// components/ui/Link.tsx
 import { JSX } from "preact/jsx-runtime";
-import { cn } from "../utils.ts";
+import { cn } from "../util/cn.ts";
 
 type LinkVariant = "default" | "outline" | "ghost" | "destructive";
 type LinkSize = "sm" | "md" | "lg";

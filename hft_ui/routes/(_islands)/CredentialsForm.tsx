@@ -2,6 +2,7 @@
 import { useActor } from "@xstate/react";
 import { machine } from "./CredentialsForm_xstate.ts";
 import { cn } from "../../util/cn.ts";
+import { Button } from "../../ui_primitives/Button.tsx";
 
 const placeholder = `\
 API_KEY ......
@@ -16,6 +17,13 @@ export function CredentialsForm() {
 
   return (
     <div class="max-w-xs flex flex-col">
+      <Button
+        onClick={() => {
+          console.log("click");
+        }}
+      >
+        Generate public crypto key
+      </Button>
       <textarea
         class={cn(
           "bg-green-50 text-4xl",

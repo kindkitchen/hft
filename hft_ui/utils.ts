@@ -1,13 +1,8 @@
-import { ClassValue, clsx } from "clsx";
 import { createDefine } from "fresh";
-import { twMerge } from "tailwind-merge";
 import deno_json from "./deno.json" with { type: "json" };
 import { Session } from "./domain/Session.ts";
 import { MarkRequired } from "./util/utility_types.ts";
 
-export const cn = (...inputs: ClassValue[]): string => {
-  return twMerge(clsx(inputs));
-};
 export const version = deno_json.version;
 export interface State {
   session: null | Session;

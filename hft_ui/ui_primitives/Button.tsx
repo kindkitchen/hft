@@ -1,11 +1,10 @@
-// components/ui/Button.tsx
 import { JSX } from "preact/jsx-runtime";
-import { cn } from "../utils.ts"; // helper for className merge (see below)
+import { cn } from "../util/cn.ts";
 
 type ButtonVariant = "default" | "outline" | "ghost" | "destructive";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends JSX.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
 }
