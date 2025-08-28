@@ -7,6 +7,16 @@ externalDocs:
   url: /
   description: UI
 paths:
+  /api/logout:
+    delete:
+      responses:
+        "204":
+          description: Remove session from cookies
+      operationId: deleteApiLogout
+    get:
+      operationId: getApiLogout
+      responses:
+        "200": {}
   /api/auth/whoami:
     get:
       responses:
@@ -24,10 +34,14 @@ paths:
             Redirect to google auth screen (then back to '/', possibly with
             obtained session)
   /api/auth/logout:
-    get:
+    delete:
       responses:
         "204":
           description: Remove session from cookies
+      operationId: deleteApiAuthLogout
+    get:
       operationId: getApiAuthLogout
+      responses:
+        "200": {}
 components:
   schemas: {}

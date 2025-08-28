@@ -1,3 +1,6 @@
-export type { GetApiAuthLogout204, GetApiAuthLogoutQueryResponse, GetApiAuthLogoutQuery } from './GetApiAuthLogout.ts'
+export type { DeleteApiAuthLogout204, DeleteApiAuthLogoutMutationResponse, DeleteApiAuthLogoutMutation } from './DeleteApiAuthLogout.ts'
+export type { DeleteApiLogout204, DeleteApiLogoutMutationResponse, DeleteApiLogoutMutation } from './DeleteApiLogout.ts'
+export type { GetApiAuthLogout200, GetApiAuthLogoutQueryResponse, GetApiAuthLogoutQuery } from './GetApiAuthLogout.ts'
 export type { GetApiAuthSignInGoogle302, GetApiAuthSignInGoogleQueryResponse, GetApiAuthSignInGoogleQuery } from './GetApiAuthSignInGoogle.ts'
 export type { GetApiAuthWhoami200, GetApiAuthWhoamiQueryResponse, GetApiAuthWhoamiQuery } from './GetApiAuthWhoami.ts'
+export type { GetApiLogout200, GetApiLogoutQueryResponse, GetApiLogoutQuery } from './GetApiLogout.ts'

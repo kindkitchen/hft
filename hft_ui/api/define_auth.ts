@@ -122,9 +122,8 @@ export const define_auth = Effect.gen(function* () {
         },
       },
     )
-    .use(
-      new Elysia()
-        .use(URL_elysia_plugin)
+    .use((app) =>
+      app
         .onBeforeHandle(({ cookie }) => {
           console.warn("TODO: rm session not only from cookies");
           cookie.session.remove();
@@ -186,6 +185,6 @@ export const define_auth = Effect.gen(function* () {
         .get("/logout", ({ url, set }) => {
           set.headers.location = url.origin;
           set.status = 302;
-        }),
+        })
     );
 });
