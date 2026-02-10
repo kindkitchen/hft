@@ -4,3 +4,6 @@
 [submodule "util_plopper"]
 	path = util_plopper
 	url = https://github.com/kindkitchen/util_plopper.git
+[submodule "hft_api"]
+	path = hft_api
+	url = https://github.com/kindkitchen/hft_api.git
