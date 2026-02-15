@@ -1,4 +1,8 @@
-name: Deploy
+name: Produce deployable artifact
+description: |
+  This action flat all code from all submodules into single codebase and
+  push it into private repository. This will allow in easy way to manage
+  codebase in later ci/cd flows (especially in deployments).
 
 on:
   workflow_call:
@@ -31,5 +35,13 @@ jobs:
           secrets_obj: ${{ toJson(secrets) }}
           dotenv_content: |
             TAG: ${{ inputs.tag }}
-      - name: Create new branch to flat submodules into one deployable repository
+      - name: Create git user
+        run: |
+          git config --global user.email "hft@ci.cd"
+          git config --global user.name "Hft Root"
+
+      - name: Flat submodules into one codebase
         run: bash ./.github/script/detach_submodules.sh
+
+      - name: Update 'dist' repository
+        run: bash ./.github/script/update_dist_repo.sh
