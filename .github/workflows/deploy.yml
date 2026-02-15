@@ -20,20 +20,22 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - uses: extractions/setup-just@v3
       - uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
           token: ${{ secrets.HFT_GITHUB_SUBMODULES_ACCESS_TOKEN }}
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: canary
-      - uses: actions/setup-node@v4
       - uses: kindkitchen/genv@v1.0.0
         with:
           vars_obj: ${{ toJson(vars) }}
           secrets_obj: ${{ toJson(secrets) }}
           dotenv_content: |
             TAG: ${{ inputs.tag }}
-      - run: ls hft_api
+      - name: Create new branch to flat submodules into one deployable repository
+        run: |
+          git checkout -b main_dist
+          git submodule foreach --recursive \
+            'git rm --cached $name -r; rm -rf .git/modules/$name'
+          git add .
+          git commit -m "$(git log -1 --pretty=%B main)"
+          git push origin main_dist --force
