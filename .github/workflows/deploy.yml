@@ -25,6 +25,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.HFT_GITHUB_SUBMODULES_ACCESS_TOKEN }}
       - uses: denoland/setup-deno@v2
         with:
           deno-version: canary
