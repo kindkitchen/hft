@@ -36,8 +36,11 @@ jobs:
           git config --global user.email "hft@ci.cd"
           git config --global user.name "Hft Root"
           git checkout -b main_dist
-          git submodule foreach --recursive \
-            'git rm --cached ../$name -r; rm -rf ../.git/modules/$name'
-          git add .
+          
+          for sub in $(git config --file .gitmodules --get-regexp path | awk '{print $2}'); \
+          do \
+            rm -rf "$sub/.git" \
+          done
+          
           git commit -m "$(git log -1 --pretty=%B main)"
           git push origin main_dist --force
