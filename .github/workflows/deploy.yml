@@ -32,3 +32,5 @@ jobs:
           secrets_obj: ${{ toJson(secrets) }}
           dotenv_content: |
             TAG: ${{ inputs.tag }}
+      - run: just pull_all_submodules
+      - run: ls hft_api
