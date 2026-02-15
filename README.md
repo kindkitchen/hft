@@ -7,5 +7,3 @@
 ### Cli utils/helpers powered by `just`
 
 > Read comments in `.just/*` files
-
-## `hft_api`
