@@ -1,0 +1,17 @@
+name: Force ignore direct push
+
+on:
+  push:
+    branches: main
+
+jobs:
+  force_ignore_direct_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.HFT_GITHUB_SUBMODULES_ACCESS_TOKEN }}
+
+      - name: Run protected branch revert script
+        run: bash ./.github/script/force_ignore_direct_push.sh
