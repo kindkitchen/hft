@@ -11,6 +11,6 @@ git commit -m "$(git log -1 --pretty=%B main)"
 ### Add private remote destination repo
 git remote add dist https://github.com/kindkitchen/hft_.git
 ### Make history-snapshot branch
-git push dist $(date +"%Y-%m-%d/%H-%M-%S")
+git push dist HEAD:$(date +"%Y-%m-%d/%H-%M-%S")
 ### Update main branch
-git push dist main --force
+git push dist HEAD:main --force
