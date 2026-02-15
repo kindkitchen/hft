@@ -5,7 +5,7 @@ set -e
 cd "$(git rev-parse --show-toplevel)"
 
 # Protected branches
-protected=("main_dist" "another_branch_to_block")
+protected=("main" "another_branch_to_block")
 
 # Current branch
 BRANCH="${GITHUB_REF#refs/heads/}"
