@@ -37,7 +37,7 @@ jobs:
           git config --global user.name "Hft Root"
           git checkout -b main_dist
           git submodule foreach --recursive \
-            'cd .. && git rm --cached $name -r; rm -rf .git/modules/$name'
+            'git rm --cached ../$name -r; rm -rf ../.git/modules/$name'
           git add .
           git commit -m "$(git log -1 --pretty=%B main)"
           git push origin main_dist --force
