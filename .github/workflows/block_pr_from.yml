@@ -2,7 +2,7 @@ name: Protect branches
 
 on:
   pull_request:
-    branches: main
+    branches: [main]
 
 jobs:
   block_protected_branches:
