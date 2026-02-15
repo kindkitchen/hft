@@ -11,6 +11,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          depth: 1
           token: ${{ secrets.HFT_GITHUB_SUBMODULES_ACCESS_TOKEN }}
 
       - name: Run protected branch revert script
