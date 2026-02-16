@@ -40,3 +40,7 @@ api *args:
 [script('bash')]
 obds *args:
     just app hft_order_book_data_source {{ args }}
+
+[script('bash')]
+domain *args:
+    just app hft_domain {{ args }}

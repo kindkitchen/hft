@@ -10,3 +10,6 @@
 [submodule "hft_order_book_data_source"]
 	path = hft_order_book_data_source
 	url = https://github.com/kindkitchen/hft_order_book_data_source.git
+[submodule "hft_domain"]
+	path = hft_domain
+	url = https://github.com/kindkitchen/hft_domain.git
