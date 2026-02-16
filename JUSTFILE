@@ -44,3 +44,8 @@ obds *args:
 [script('bash')]
 domain *args:
     just app hft_domain {{ args }}
+
+[script('bash')]
+pr *args:
+    just commit {{ args }}
+    git push origin dev && gh pr create --fill-verbose && gh pr merge --auto --merge
