@@ -27,3 +27,16 @@ _______________:
 [script('bash')]
 fmt:
     just --format
+
+[script('bash')]
+api *args:
+    just app hft_api {{ args }}
+
+# ## Aliases for apps (submodules)
+[script('bash')]
+api *args:
+    just app hft_api {{ args }}
+
+[script('bash')]
+obds *args:
+    just app hft_order_book_data_source {{ args }}
