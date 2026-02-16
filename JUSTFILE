@@ -51,7 +51,7 @@ pr *args:
     just commit {{ args }}
     git submodule foreach 'git push origin $(git branch --show-current)'
     git push origin dev && gh pr create --fill-verbose && gh pr merge --auto --merge
-    git branch -D dev
     git checkout main
+    git branch -D dev
     git pull origin main
     git checkout -b dev
