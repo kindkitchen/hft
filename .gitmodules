@@ -7,3 +7,6 @@
 [submodule "hft_api"]
 	path = hft_api
 	url = https://github.com/kindkitchen/hft_api.git
+[submodule "hft_order_book_data_source"]
+	path = hft_order_book_data_source
+	url = https://github.com/kindkitchen/hft_order_book_data_source.git
