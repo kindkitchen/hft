@@ -32,7 +32,7 @@ fmt:
 api *args:
     just app hft_api {{ args }}
 
-# ## Aliases for apps (submodules)
+### Aliases for apps (submodules)
 [script('bash')]
 api *args:
     just app hft_api {{ args }}
