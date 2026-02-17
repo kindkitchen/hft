@@ -16,7 +16,15 @@ import '.just/project_update_submodules.just'
 
 alias v := version
 
-JSON_FILES_WITH_VERSION := "util_plopper/deno.json util_xstate.json project_support/deno.json"
+JSON_FILES_WITH_VERSION := '''\
+ util_plopper/deno.json\
+ util_xstate/deno.json\
+ project_support/deno.json\
+ hft_api/deno.json\
+ hft_web/deno.json\
+ hft_domain/deno.json\
+ hft_order_book_data_source/deno.json\
+'''
 ROOT := justfile_directory()
 OPEN_FOLDER_IN_EDITOR := "code -r"
 
@@ -28,11 +36,7 @@ _______________:
 fmt:
     just --format
 
-[script('bash')]
-api *args:
-    just app hft_api {{ args }}
-
-### Aliases for apps (submodules)
+# ## Aliases for apps (submodules)
 [script('bash')]
 api *args:
     just app hft_api {{ args }}
@@ -49,6 +53,7 @@ obds *args:
 domain *args:
     just app hft_domain {{ args }}
 
+# ## Helpers
 [script('bash')]
 pr *args:
     set -e
