@@ -1,9 +1,23 @@
 [script('bash')]
 make_libs_real_in_app app:
     set -e
+    cd {{ ROOT }}
     find "{{ app }}" -type l | while read link; do
         src=$(readlink "$link")
         rm "$link"
-        cp -r "$src" "$link"
-        echo "Replaced symlink $link with copy from $src"
+        mkdir "$link"
+        cd "$link"
+        cd ..
+        path=$(pwd)/$(basename $link)
+        cp -r "$src" "$path"
+        
+        ### debugging ###
+        just printInfo "Replace symlink with copy of its content"
+        echo "The link's path:"
+        just print "$link"
+        echo "Copies are from path:"
+        just print "$src"
+        ### debugging ###
+
+        cd {{ ROOT }}
     done
