@@ -14,3 +14,13 @@ git remote add dist https://github.com/kindkitchen/hft_.git
 git push dist HEAD:$(date +"%Y-%m-%d/%H-%M-%S")
 ### Update main branch
 git push dist HEAD:main --force
+
+### Update <hft_web_> dist repo
+rm -fr .git
+cd hft_web
+git init
+git add .
+git commit -m "$(git log -1 --pretty=%B main)"
+git remote add dist https://github.com/kindkitchen/hft_web_.git
+git push dist HEAD:$(date +"%Y-%m-%d/%H-%M-%S")
+git push dist HEAD:main --force
