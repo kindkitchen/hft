@@ -21,6 +21,6 @@ cd hft_web
 git init
 git add .
 git commit -m "$(git log -1 --pretty=%B main)"
-git remote add dist https://github.com/kindkitchen/hft_web_.git
-git push dist HEAD:$(date +"%Y-%m-%d/%H-%M-%S")
-git push dist HEAD:main --force
+git remote add dist_web https://github.com/kindkitchen/hft_web_.git
+git push dist_web HEAD:$(date +"%Y-%m-%d/%H-%M-%S")
+git push dist_web HEAD:main --force
