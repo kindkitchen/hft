@@ -1,8 +1,9 @@
+#############################################################################
+### This action flat all code from all submodules into single codebase and
+### push it into private repository. This will allow in easy way to manage
+### codebase in later ci/cd flows (especially in deployments).
+#############################################################################
 name: Produce deployable artifact
-description: |
-  This action flat all code from all submodules into single codebase and
-  push it into private repository. This will allow in easy way to manage
-  codebase in later ci/cd flows (especially in deployments).
 
 on:
   workflow_call:
@@ -43,5 +44,10 @@ jobs:
       - name: Flat submodules into one codebase
         run: bash ./.github/script/detach_submodules.sh
 
-      - name: Update 'dist' repository
-        run: bash ./.github/script/update_dist_repo.sh
+      - uses: extractions/setup-just@v3
+      - name: Update links with physical files
+        run: |
+          just make_libs_real_in_app hft_web
+
+      - name: Update 'dist' repositories
+        run: bash ./.github/script/update_dist_repos.sh
