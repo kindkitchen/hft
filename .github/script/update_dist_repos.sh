@@ -17,13 +17,24 @@ git remote add dist https://github.com/kindkitchen/hft_.git
 git push dist HEAD:"$timestamp"
 ### Update main branch
 git push dist HEAD:main --force
-
 ### Update <hft_web_> dist repo
-rm -fr .git
-cd hft_web
-git init
+mkdir ____
+shopt -s dotglob
+for item in *; do
+  if [ "$item" != "____" ]; then
+    mv "$item" ____/
+  fi
+done
+
+for item in ____/hft_web/*; do
+  mv "$item" ../..
+done
+
+rm -fr ____
+
 git add .
 git commit -m "$message"
+git remote rm dist
 git remote add dist https://github.com/kindkitchen/hft_web_.git
 git push dist HEAD:"$timestamp"
 git push dist HEAD:main --force
