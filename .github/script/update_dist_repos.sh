@@ -26,8 +26,10 @@ for item in *; do
   fi
 done
 
+mv ____/.git .
+
 for item in ____/hft_web/*; do
-  mv "$item" ../..
+  mv "$item" .
 done
 
 rm -fr ____
