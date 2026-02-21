@@ -13,6 +13,7 @@ import '.just/deno_test.just'
 import '.just/git_add_A_git_commit.just'
 import '.just/llm.just'
 import '.just/project_update_submodules.just'
+import '.just/make_libs_real_in_app.just'
 
 alias v := version
 
