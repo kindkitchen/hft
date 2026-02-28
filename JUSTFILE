@@ -65,3 +65,4 @@ pr *args:
     git branch -D dev
     git pull origin main
     git checkout -b dev
+    echo """https://github.com/kindkitchen/hft/actions"""
