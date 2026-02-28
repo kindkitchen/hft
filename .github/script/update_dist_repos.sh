@@ -14,6 +14,7 @@ just printInfo "Array of pairs: 'PATH_TO_REPO|remote_repo_url'"
 REPOS=(
   "./|https://github.com/kindkitchen/hft_.git"
   "./hft_web|https://github.com/kindkitchen/hft_web_.git"
+  "./hft_api|https://github.com/kindkitchen/hft_api_.git"
 )
 
 for entry in "${REPOS[@]}"; do

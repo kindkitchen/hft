@@ -47,5 +47,6 @@ jobs:
       - name: Update links with physical files
         run: |
           just make_libs_real_in_app hft_web
+          just make_libs_real_in_app hft_api
       - name: Update 'dist' repositories
         run: bash ./.github/script/update_dist_repos.sh
