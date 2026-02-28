@@ -11,6 +11,7 @@ make_libs_real_in_app app:
         cd ..
         mkdir $(basename $link)
         path=$(pwd)/$(basename $link)
+        cd $(basename $link)
         cp -r "$src" "$path"
         
         ### debugging ###
