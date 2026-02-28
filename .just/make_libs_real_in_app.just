@@ -9,7 +9,10 @@ make_libs_real_in_app app:
         cd "$link"
         cd ..
         path=$(pwd)/$(basename $link)
-        just printInfo "$(pwd)"
+        mkdir $(basename $link)
+        cd $(basename $link)
+        just printInfo "pwd: $(pwd)"
+        just printInfo "command: cp $src/* $path"
         cp -r "$src/*" "$path"
         
         ### debugging ###
