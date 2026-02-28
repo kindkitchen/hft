@@ -8,6 +8,8 @@ make_libs_real_in_app app:
         mkdir "$link"
         cd "$link"
         cd ..
+        cd ..
+        mkdir $(basename $link)
         path=$(pwd)/$(basename $link)
         cp -r "$src" "$path"
         
