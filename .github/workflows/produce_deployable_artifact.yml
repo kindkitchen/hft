@@ -41,14 +41,11 @@ jobs:
           git config --global user.email "hft@ci.cd"
           git config --global user.name "Hft Root"
           git config --global init.defaultBranch main
-
       - name: Flat submodules into one codebase
         run: bash ./.github/script/detach_submodules.sh
-
       - uses: extractions/setup-just@v3
       - name: Update links with physical files
         run: |
           just make_libs_real_in_app hft_web
-
       - name: Update 'dist' repositories
         run: bash ./.github/script/update_dist_repos.sh
