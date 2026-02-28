@@ -9,7 +9,7 @@ make_libs_real_in_app app:
         cd "$link"
         cd ..
         path=$(pwd)/$(basename $link)
-        cp -r "$src" "$path"
+        cp -r "$src/*" "$path"
         
         ### debugging ###
         just printInfo "Replace symlink with copy of its content"
