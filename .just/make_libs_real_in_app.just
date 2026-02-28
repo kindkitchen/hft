@@ -2,17 +2,16 @@
 make_libs_real_in_app app:
     set -e
     cd {{ ROOT }}
+    ls
     find "{{ app }}" -type l | while read link; do
         src=$(readlink "$link")
         rm "$link"
         mkdir "$link"
         cd "$link"
-        cd ../..
+        cd ..
         path=$(pwd)/$(basename $link)
-        mkdir $(basename $link)
-        cd $(basename $link)
         just printInfo "pwd: $(pwd)"
-        just printInfo "command: cp $src/* $path"
+        just printInfo "command: cp -r $src/* $path"
         cp -r "$src/*" "$path"
         
         ### debugging ###
