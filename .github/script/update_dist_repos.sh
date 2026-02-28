@@ -17,12 +17,12 @@ REPOS=(
 )
 ########################################
 for entry in "${REPOS[@]}"; do
-  IFS="|" read -r PATH REPO <<< "$entry"
+  IFS="|" read -r PATH_TO_REPO REPO <<< "$entry"
   ###
-  echo """Processing $PATH -> $REPO"""
+  echo """Processing $PATH_TO_REPO -> $REPO"""
   ###
-  echo """Change directory to $PATH"""
-  cd "$PATH"
+  echo """Change directory to $PATH_TO_REPO"""
+  cd "$PATH_TO_REPO"
   ###
   echo """Remove original git repository"""
   rm -fr .git
