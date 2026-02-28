@@ -5,10 +5,10 @@ make_libs_real_in_app app:
     find "{{ app }}" -type l | while read link; do
         src=$(readlink "$link")
         rm "$link"
-        mkdir "$link"
-        cd "$link"
-        cd ../..
         path=$(pwd)/$(basename $link)
+        mkdir "$path"
+        cd "$path"
+        cd ..
         cp -r "$src" "$path"
         
         ### debugging ###
