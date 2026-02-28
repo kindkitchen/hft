@@ -48,5 +48,4 @@ jobs:
         run: |
           just make_libs_real_in_app hft_web
       - name: Update 'dist' repositories
-        shell: bash
         run: bash ./.github/script/update_dist_repos.sh

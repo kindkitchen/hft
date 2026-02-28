@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -e
 ###
-echo """Make sure we're in the repository root"""
+just print """Make sure we're in the repository root"""
 cd "$(git rev-parse --show-toplevel)"
 ###
-echo """Prepare message"""
+just print """Prepare message"""
 message="$(git log -1 --pretty=%B main)"
 ###
-echo """Prepare timestamp"""
+just print """Prepare timestamp"""
 timestamp="$(date +"%Y-%m-%d/%H-%M-%S")"
 ###
-echo """Array of pairs: 'local_path|remote_repo_url'"""
+just print """Array of pairs: 'local_path|remote_repo_url'"""
 REPOS=(
   "./|https://github.com/kindkitchen/hft_.git"
   "./hft_web|https://github.com/kindkitchen/hft_web_.git"
@@ -19,36 +19,36 @@ REPOS=(
 for entry in "${REPOS[@]}"; do
   IFS="|" read -r PATH_TO_REPO REPO <<< "$entry"
   ###
-  echo """Processing $PATH_TO_REPO -> $REPO"""
+  just print """Processing $PATH_TO_REPO -> $REPO"""
   ###
-  echo """Change directory to $PATH_TO_REPO"""
+  just print """Change directory to $PATH_TO_REPO"""
   cd "$PATH_TO_REPO"
   ###
-  echo """Remove original git repository"""
+  just print """Remove original git repository"""
   rm -fr .git
   ###
-  echo """Reinitialize new one"""
+  just print """Reinitialize new one"""
   git init
   ###
-  echo """Remove origin (if existed)"""
+  just print """Remove origin (if existed)"""
   git remote remove origin 2>/dev/null || true
   ###
-  echo """Add origin"""
+  just print """Add origin"""
   git remote add origin "$REPO"
   ###
-  echo """Stage all files"""
+  just print """Stage all files"""
   git add .
   ###
-  echo """Commit with original last commit message from main"""
+  just print """Commit with original last commit message from main"""
   git commit -m "$message"
   ###
-  echo """Make history-snapshot branch"""
+  just print """Make history-snapshot branch"""
   git push origin HEAD:"$timestamp"
   ###
-  echo """Update main branch"""
+  just print """Update main branch"""
   git push origin HEAD:main --force
   ###
-  echo """Change directory back"""
+  just print """Change directory back"""
   cd -
 done
 ##########################################
