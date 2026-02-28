@@ -7,7 +7,7 @@ make_libs_real_in_app app:
         rm "$link"
         mkdir "$link"
         cd "$link"
-        cd ..
+        cd ../..
         path=$(pwd)/$(basename $link)
         mkdir $(basename $link)
         cd $(basename $link)
